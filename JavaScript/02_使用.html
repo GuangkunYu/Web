@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function myFunction(){
+            document.getElementById('demo2').innerHTML='段落已被更改。';
+        }
+    </script>
+    <script src="./js/01_myScript.js"></script>
+</head>
+<body>
+    <h2>Body中的JavaScript</h2>
+    <p id="demo"></p>
+    <script>
+        document.getElementById('demo').innerHTML='我的第一段JavaScript';
+    </script>
+    <h2>Head中的JavaScript</h2>
+    <p id="demo2">一个段落。</p>
+    <button onclick="myFunction()">试一试！</button>
+    <h2>Body中的JavaScript</h2>
+    <p id="demo3">又一个段落。</p>
+    <button onclick="myFunction2()">试一试！</button>
+    <script>
+        function myFunction2(){
+            document.getElementById('demo3').innerHTML='段落又已被更改。';
+        }
+    </script>
+    <p id="demo4">又一个段落。</p>
+    <button onclick="myFunction3()">试一试！</button>
+</body>
+</html>
