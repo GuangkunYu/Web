@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,p{
+    font-size: 16px; 
+    font-weight: normal;
+    color: #dad7db;
+}
+ul{
+    list-style: none;
+}
+img{
+    width: 210px;
+    height: 116px;
+    display: block;
+}
+.l{
+    float: left;
+}
+.r{
+    float: right;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 整个内容 */
+#main{
+    width: 1902px;
+    height: 278px;
+    background: #16161a;
+    box-sizing: border-box;
+    margin-top: 100px;
+    padding: 16px 68px 34px 68px;
+}
+
+/* 标题 */
+#title{
+    height: 52px;
+    line-height: 52px;
+    margin-bottom: 5px;
+
+}
+#title h2{
+    font-size: 26px;
+    margin-right: 38px;
+}
+#title .t1, .t2{
+    font-size: 14px;
+    margin-right: 34px;
+}
+#title .t3{
+    font-size: 12px;
+    position: relative;
+}
+#title img{
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+}
+
+/* 图片 */
+#pic .imgs ul li{
+    margin-right: 12px;
+}
+#pic .imgs ul li:last-child{
+    margin-right: 0;
+}
+#pic .imgs ul li .content{
+    margin-bottom: 2px;
+    position: relative;
+}
+#pic .imgs ul li .content p{
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    font-size: 10px;
+}
+#pic .imgs ul li .content .pin{
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    font-size: 12px;
+    color: #ff6f3b;
+}
+#pic .imgs ul li .content .log{
+    position: absolute;
+    width: 32px;
+    height: 16px;
+    right: 8px;
+    top: 1px;
+}
+#pic .imgs ul li .p1{
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+}
+#pic .imgs ul li .p1 img{
+    position: absolute;
+    left: 70px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+}
+#pic .imgs ul li .p1 .love{
+    position: absolute;
+    left: 30px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+}
+#pic .imgs ul li .p1 .sun{
+    position: absolute;
+    left: 40px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+}
+#pic .imgs ul li .p2{
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #6f6f71;
+}
