@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            多分支语句：
+                语法：
+                    if(判断条件1){
+                        执行语句1;
+                    }else if(判断条件2){
+                        执行语句2;
+                    }...
+                    else{
+                        执行语句;（上述所有条件都不成立的时候，执行）
+                    }
+        */
+
+        /*
+            题目1：计算y值并输出
+        */
+        // var x = 10;
+        // var y = null;
+        // if(x < 1){
+        //     y = x;
+        // }else if(1 <= x && x < 10){
+        //     y = 2 * x + 1;
+        // }else if(x >= 10){
+        //     y = 5 * x - 17;
+        // }else{
+        //     alert("输入错误！")
+        // }
+        // alert("y的值是：" + y)
+
+        /*
+            题目2：成绩判定
+        */
+        var score = 100;
+        if(score >= 85){
+            alert("优秀");
+            if(score >= 85 && score < 90){
+                alert("奖励" + 300);
+            }else if(score >= 90 && score < 95){
+                alert("奖励" + 800);
+            }else if(score >= 95 && score <= 100){
+                alert("奖励" + 1000);
+            }
+        }else if(score >= 75 && score < 85){
+            alert("良好");
+        }else if(score >= 60 && score < 75){
+            alert("及格");
+        }else{
+            alert("不及格");
+        }
+
+        /*
+            【注】什么时候用判断语句，就编写if语句
+            代码规范：
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
