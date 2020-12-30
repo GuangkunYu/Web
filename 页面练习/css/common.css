@@ -1,0 +1,62 @@
+/* 去除默认样式 */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ul, ol{
+    list-style: none;
+}
+img{
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: #646464;
+}
+h1, h2, h3{
+    font-size: 16px;
+}
+body{
+    font-family: ArialMT MicrosoftYaHei;
+}
+
+/* 清除浮动 */
+.l{
+    float: left;
+}
+.r{
+    float: right;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 版心和通栏 */
+.container{
+    width: 1082px;
+    margin: 0 auto;
+    position: relative;
+}
+.container-fluid{
+    width: 100%;
+}
+
+/* 导航栏样式 */
+#head{
+    height: 81px;
+}
+#head .head_logo{
+    width: 162px;
+    height: 44px;
+    margin-top: 19px;
+}
+#head .head_menu{
+    font-size: 14px;
+    line-height: 81px;
+}
+#head .head_menu li{
+    float: left;
+    margin-left: 58px;
+}
