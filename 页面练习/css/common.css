@@ -60,3 +60,23 @@ body{
     float: left;
     margin-left: 58px;
 }
+
+/* 服务范围 */
+.area_title{
+    margin-top: 61px;
+    text-align: center;
+}
+.area_title h2{
+    height: 21px;
+    line-height: 21px;
+    font-family: Adobe Heiti Std;   
+    font-size: 20px;
+    font-weight: normal;
+    color: #363636;
+    background: url(../imgs/title_bg.png) center 5px no-repeat;
+}
+.area_title p{
+    color: #9F9F9F;
+    font-size: 14px;
+    line-height: 36px;
+}

@@ -1,0 +1,100 @@
+#main{
+    background: url('../imgs2/guanwang.jpg') no-repeat center 0;
+}
+#nav{
+   
+    background: url('../imgs2/nav.png') no-repeat center 0;
+    opacity: 0.8;
+}
+#nav .container{
+    
+    overflow: hidden;
+}
+.nav_logo{
+    width: 145px;
+    height: 110px;
+    margin: 18px auto;
+}
+#nav dl{
+    position: absolute;
+    top: 0px;
+}
+#nav dt{
+    height: 70px;
+}
+#nav dt a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+#nav dd{
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+}
+#nav dd a{
+    color: #ffffff;
+    position: relative;
+}
+#nav dd a:hover{
+    color: #ff4d35;
+    text-decoration: underline;
+}
+#nav dd a.hot::after,
+#nav dd a.new::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url('../imgs2/nav_tips.png')no-repeat;
+    right: -16px;
+    top: 0px;
+}
+#nav dd a.hot::after{
+    background-position: 0px -12px;
+}
+#nav dd a.new::after{
+    background-position: 0px 0px;
+}
+#nav .nav_index{
+    width: 90px;
+    left: -12px;
+}
+#nav .nav_zl{
+    width: 120px;
+    left: 70px;
+}
+#nav .nav_ss{
+    width: 125px;
+    left: 178px;
+}
+#nav .nav_hd{
+    width: 132px;
+    left: 294px;
+}
+
+#link{
+    width: 620px;
+    height: 240px;
+}
+#link a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#banner{
+    height: 276px;
+    background: url('../imgs2/top.png') no-repeat;
+    margin-top: 20px;
+}
+#banner .banner_left{
+    width: 240px;
+    height: 310px;
+    background: url('../imgs2/down_user_spr.png') 0px 0px no-repeat;
+    margin: -10px 6px;
+}
