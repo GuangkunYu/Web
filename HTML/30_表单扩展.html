@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* label input{
+            display: none;
+        } 
+        label input:checked + div{
+            background: url("./images/复选框-选中\ \(1\).png") 0 0 no-repeat;
+        }
+        label div{
+            padding-left: 16px;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            background: url(./images/复选框-未选择\ \(1\).png) 0 0 no-repeat;
+        } */
+
+        /* label input{
+            display: none;
+        }
+        label div{
+            width: 149px;
+            height: 64px;
+            line-height: 64px;
+            text-align: center;
+            background: url('./images/按钮.png');
+        } */
+
+        .upload{
+            width: 149px;
+            height: 64px;
+            position: relative;
+        }
+        .upload div{
+            width: 100%;
+            height: 100%;
+            background: url('./images/按钮.png');
+            line-height: 64px;
+            text-align: center;
+        }
+        .upload input{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 复选框优化 -->
+    <!-- <label>
+        <input type="checkbox">
+        <div>head</div>
+    </label> -->
+
+    <!-- 上传文件按钮优化 -->
+    <!-- <label>
+        <input type="file" name="" id="">
+        <div>文件上传</div>
+    </label> -->
+
+    <div class="upload">
+        <input type="file" name="" id="">
+        <div>上传文件</div>
+    </div>
+</body>
+</html>
