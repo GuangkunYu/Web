@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            函数的语法：
+                函数的声明：（无参数无返回值）
+                    function 函数名(){
+                        函数体（具体要执行的代码）;
+                    }
+
+                【注】函数名要见名思意，体现实现的功能
+
+                函数调用：
+                    格式：函数名();
+                
+                函数作用：
+                    1、使程序变得简短而清晰
+                    2、有利于程序维护
+                    3、可以提高程序开发效率
+                    4、提高了代码的重用性（复用性）
+        */
+
+        // 输出10个hello world，在不同的地方
+        function print_helloworld(){
+            for (let i = 0; i< 10; i++){
+                document.write("hello world! <br/>" )
+            }
+        }
+
+        // print_helloworld();
+
+        /*
+            输出N个hello world
+            【注】不确定的值。
+
+            有参数无返回值的函数
+            形参：形式上的参数。【注】使用起来和普通的变量没有区别
+
+            格式：
+                function 函数名(形参1, 形参2, ...){
+                    函数体;
+                }
+            
+            调用函数：
+                格式：函数名(实参1, 实参2, ...);
+
+            实参：实际传入的参数。
+
+            传参：用实参给形参赋值
+        */
+        
+        function print_n_helloworld(number){
+            for (let i = 0; i< number; i++){
+                document.write("hello world! <br/>" )
+            }
+        }
+
+        // print_n_helloworld(2);
+
+        /*
+            求两个数的和
+
+            封装函数步骤：
+                1、分析不确定的值’
+                2、将不确定的值声明为形参
+                3、函数名和形参名要见名思意
+        */
+
+        function add_two_number(num1, num2){
+            // alert(num1 + num2);
+        }
+
+        // add_two_number(5, 10);
+
+        /*
+            【注】不能够将函数运行的结果写在函数里
+
+            有参数有返回值的函数：
+                格式：
+                    function 函数名(形参1, 形参2, ...){
+                    函数体;
+                    return 表达式;
+                }
+            
+            【注】return后面写什么表达式，函数调用的结果就是return后面表达式的值。
+
+            【注】函数运行的时候，如果遇到return关键字，整个函数会终止。
+        */
+        
+        function add_two_number1(num1, num2){
+            return num1 + num2;
+        }
+
+        var res = add_two_number1(10, 10);
+        alert(res);
+
+        var res2 = add_two_number1(20, 10);
+        document.write(res2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
