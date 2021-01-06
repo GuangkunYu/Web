@@ -7,8 +7,47 @@
     <script>
         /*
             斐波那契数列
-            兔子问题
+            兔子繁殖问题：
+                    一月兔  二月兔  三月兔  成熟兔
+            一月       1      0      0      0       1
+            二月       0      1      0      0       1
+            三月       0      0      1      0       1
+            四月       1      0      0      1       2
+            五月       1      1      0      1       3
+            六月       1      1      1      1       4
+            七月       2      1      1      2       6
+            八月       3      2      1      3       9
+            九月       4      3      2      4       13
+
+            rabbit(4) = rabbit(3) + rabbit(1)
+            rabbit(n) = rabbit(n-1) + rabbit(n-3)
         */
+
+        function rabbit(n){
+            if(n < 4){
+                return 1;
+            }else{
+                return rabbit(n-1) + rabbit(n-3);
+            }
+        }
+
+        // alert(rabbit(4));
+
+        /*
+            有一堆桃子不知数目，猴子第一天吃掉一半，觉得不过瘾，又多吃了一个，第二天照此办法，吃掉剩下桃子的一半另加一只，天天如此，到第num(num<=10)天早上，猴子发现只剩一只桃了，问这只桃原来有多少只？(n为还剩n天吃完的桃子数)
+            peach(10) / 2 -1 = peach(9)
+            peach(10) = (peach(9) + 1) * 2;
+        */
+
+        function peach(n){
+            if(n == 1){
+                return 1;
+            }else{
+                return (peach(n-1) + 1) * 2;
+            }
+        }
+
+        alert(peach(4));
     </script>
 </head>
 <body>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            数组：用一个变量存储一堆数据的数据结构 
+
+            声明数组：
+                1、通过new创建数组
+                    参数：传入任意的数据，存储到数组中。
+                2、省略new运算符创建数组
+                【注】上述两种方法，传入参数只有一个，并且是数字的时候，直接声明这么长的一个数组
+                3、数组常量进行赋值。（JS一般使用中括号[]）
+        */
+
+        var arr1 = new Array(100, "hello", true);
+        
+        var arr2 = Array(100, "hello", true);
+
+        var arr3 = [100, "hello", true];
+
+        // 声明长度为10的数组，数组中没有数据
+        var arr4 = new Array(10);
+        var arr5 = Array(10);
+
+        var arr6 = [10];
+        // alert(arr6);
+
+        /*
+            数组的属性：
+                数组.length 返回值为数组【元素】的个数
+            元素：将数组存储的每一个数据，叫做数组的元素
+            访问数组的元素：
+                数组[下标];     下标从0开始
+
+            【注】数组和循环是天生一对
+        */
+
+        var arr7 = [100, 'hello', true];
+        // alert(arr7.length);
+        // alert(arr7[1]);
+        for(let i = 0; i < arr7.length; i++){
+            document.write(arr7[i] + "<br/>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

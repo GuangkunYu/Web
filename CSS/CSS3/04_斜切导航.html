@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            list-style: none;
+            width: 440px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            background: red;
+            color: white;
+            text-align: center;
+            margin: 0 5px;
+            transform: skewX(-30deg);
+        }
+        /* ul li.active{
+            background: blue;
+        } */
+        ul li:hover{
+            background: blue;
+            transform: scale(1.1, 1.1) skewX(-30deg);
+        }
+        ul li span{
+            display: block;
+            transform: skewX(30deg);
+        }
+        ul li:first-child{
+            padding-left: 10px;
+            margin-left: -10px;
+        }
+        ul li:last-child{
+            padding-right: 20px;
+            margin-right: -20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="active"><span>首页</span></li>
+            <li><span>关于我们</span></li>
+            <li><span>联系方式</span></li>
+            <li><span>招聘信息</span></li>
+        </ul>
+    </div>
+</body>
+</html>

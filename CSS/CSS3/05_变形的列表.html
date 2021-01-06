@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;    
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            display: block;
+            width: 148px;
+            height: 102px;
+            border: 1px solid #c1c1c1;   
+        }
+        body{
+            background: black;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+
+
+        #main{
+            width: 332px;
+            height: 680px;
+            background: white;
+            margin: 30px auto;
+            border-top: 3px solid #e5e5e5;
+            border-bottom: 3px solid #8c8c8c;
+        }
+
+
+        .list{
+            width: 314px;
+            margin: 25px auto;  
+        }
+
+
+        .list li{
+            height: 116px;
+            border-bottom: 2px dashed #e1e1e1;
+            margin-bottom: 12px;
+        }
+        .list li:last-child{
+            border-bottom: none;
+        }
+
+
+        .list li .list_photo{
+            float: left;
+            width: 150px;
+            height: 104px;
+            margin-right: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .list li .list_photo .list_photo_box{
+            width: 122px;
+            height: 80px;
+            border: 1px solid white;
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            transform-origin: -12px -12px;
+            transform: translate(0, -120px) rotate(-90deg);
+            transition: 1s;
+        }
+        .list li:hover .list_photo .list_photo_box{
+            transform: translate(0, 0) rotate(0);
+        }
+        .list li .list_photo .list_photo_text{
+            width: 100%;
+            position: absolute;
+            bottom: 30px;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            transform: translate(0, 50px);
+            transition: 1.5s;
+        }
+        .list li:hover .list_photo .list_photo_text{
+            transform: translate(0, 0);
+        }
+
+
+        .list li .list_text{
+            float: left;
+            width: 152px;
+            font-size: 16px;
+            line-height: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <ul class="list">
+            <li>
+                <div class="list_photo">
+                    <img src="../images/1_1.png" alt="">
+                    <div class="list_photo_box"></div>
+                    <div class="list_photo_text">陌陌上市</div>
+                </div>
+                <div class="list_text">
+                    <p>
+                        <a href="">撕逼也阻止不了陌陌上市</a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="list_photo">
+                    <img src="../images/1_2.png" alt="">
+                    <div class="list_photo_box"></div>
+                    <div class="list_photo_text">陌陌上市</div>
+                </div>
+                <div class="list_text">
+                    <p>
+                        <a href="">魅族进军娱乐圈: 妹子太漂亮我不敢看</a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="list_photo">
+                    <img src="../images/1_3.png" alt="">
+                    <div class="list_photo_box"></div>
+                    <div class="list_photo_text">陌陌上市</div>
+                </div>
+                <div class="list_text">
+                    <p>
+                        <a href="">PS高手体验Photoshop 1.0: 什么鬼？！</a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="list_photo">
+                    <img src="../images/1_4.png" alt="">
+                    <div class="list_photo_box"></div>
+                    <div class="list_photo_text">陌陌上市</div>
+                </div>
+                <div class="list_text">
+                    <p>
+                        <a href="">这六个人乔帮主至死也没有原谅</a>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="list_photo">
+                    <img src="../images/1_5.png" alt="">
+                    <div class="list_photo_box"></div>
+                    <div class="list_photo_text">陌陌上市</div>
+                </div>
+                <div class="list_text">
+                    <p>
+                        <a href="">Google、微软以及亚马逊都是怎么赚钱的？</a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

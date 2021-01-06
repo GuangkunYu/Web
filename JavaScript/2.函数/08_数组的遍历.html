@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1、以下通过循环给数组每个元素赋值，随机数
+
+            Math.random()   随机 [0, 1)
+        */
+
+        var arr = new Array(10);
+        for(let i=0; i<arr.length; i++){
+            arr[i] = parseInt(Math.random() * 10);
+        }
+        // alert(arr);
+
+        /*
+            数组的遍历：
+                for循环
+                for...in 遍历   快速遍历/快速枚举
+        */
+
+        var arr1 = [10, 20, 30, 40, 50];
+        for(let i = 0; i < arr1.length; i++){
+            document.write(arr1[i] + '<br/>');
+        }
+
+        for(var i in arr1){
+            document.write(arr1[i] + '<br/>');
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
