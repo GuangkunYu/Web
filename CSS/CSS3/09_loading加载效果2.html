@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loading{
+            width: 200px;
+            height: 60px;
+            margin: 200px auto;
+            overflow: hidden;
+        }
+        .loading .box1{
+            width: 190px;
+            height: 50px;
+            margin: 5px auto;
+        }
+        .loading .box1 div{
+            float: left;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: skyblue;
+            animation: loadingMove .8s infinite linear;
+            opacity: .7;
+        }
+        .loading .box1 div:nth-child(1){
+
+        }
+        .loading .box1 div:nth-child(2){
+            margin-left: -15px;
+        }
+        .loading .box1 div:nth-child(3){
+            margin-left: -15px;
+        }
+        .loading .box1 div:nth-child(4){
+            margin-left: -15px;
+        }
+        .loading .box1 div:nth-child(5){
+            margin-left: -15px;
+        }
+
+        @keyframes loadingMove{
+            0%{
+                transform: scale(1);
+            }
+            60%{
+                transform: scale(.3);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+
+        .loading .box1 div:nth-child(1){
+            animation-delay: 0s;
+        }
+        .loading .box1 div:nth-child(2){
+            animation-delay: -.1s;
+        }
+        .loading .box1 div:nth-child(3){
+            animation-delay: -.2s;
+        }
+        .loading .box1 div:nth-child(4){  
+            animation-delay: -.3s;
+        }
+        .loading .box1 div:nth-child(5){  
+            animation-delay: -.4s;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="box1">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+</html>

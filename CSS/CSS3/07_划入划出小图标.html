@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            list-style: none;
+            width: 240px;
+            height: 80px;
+            /* overflow: hidden; */
+            margin: 50px auto;
+        }
+        ul li{
+            float: left;
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+        ul li img{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -32px 0 0 -34px;
+        }
+        ul li:hover img{
+            animation: move 2s;
+        }
+
+        @keyframes move{
+            0%{
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            60%{
+                transform: translate(0, -100px);
+                opacity: 0;
+            }
+            61%{
+                transform: translate(0, 80px);
+            }
+            100%{
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <img src="../images/录音机.png" alt="">
+        </li>
+        <li>
+            <img src="../images/飞机.png" alt="">
+        </li>
+        <li>
+            <img src="../images/锁.png" alt="">
+        </li>
+    </ul>
+</body>
+</html>
