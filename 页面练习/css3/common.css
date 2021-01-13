@@ -1,0 +1,143 @@
+/* 清除默认样式 */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #333333;
+}
+img{
+    display: block;
+}
+h1, h2, h3{
+    font-size: 16px;
+    font-weight: normal;
+}
+html, body{
+    font-family: Arial, 微软雅黑;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+/* 浮动基本样式 */
+.l{
+    float: left;
+}
+.r{
+    float: right;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 字体图标默认样式 */
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/* 头部样式 */
+#header{
+    height: 80px;
+    background-color: #018ffb;
+    border-top: 5px solid #424147;
+}
+#header .header_logo h1{
+    margin: 19px 14px 0 20px;
+}
+#header .header_logo h2{
+    color: #FFFFFF;
+    font-size: 24px;
+    line-height: 25px;
+    margin-top: 28px;
+}
+#header .header_nav{
+    margin-top: 33px;
+}
+#header .header_nav li{
+    margin-right: 25px;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+#header .header_nav li i{
+    margin-right: 8px;
+    font-size: 16px;
+}
+#header .header_nav li i.iconwode{
+    margin-right: 11px;
+    font-size: 24px;
+    line-height: 8px;
+    position: relative;
+    top: 3px;
+}
+#header .header_nav li:last-child{
+    margin-right: 20px;
+}
+#header .header_nav li a{
+    color: #FFFFFF;
+}
+
+/* 左侧边栏样式 */
+#menu{
+    width: 200px;
+    background: #424147;
+    height: calc(100% - 85px);
+}
+#menu ul{
+    color: #9a999e;
+    text-align: center;
+}
+#menu ul li{
+    height: 140px;
+    border-bottom: 1px solid #3a393e;
+    border-top:1px solid #49484e;
+}
+#menu ul li.active{
+    background: #4e4d53;
+    color: #ffffff;
+}
+#menu ul li a{
+    color: inherit;
+    display: block;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 35px;
+}
+#menu ul li a i{
+    font-size: 40px;
+}
+#menu ul li a p{
+    margin-top: 15px;
+}
+
+/* 主体样式 */
+#main{
+    overflow: hidden;
+    height: calc(100% - 85px - 50px);
+}
+#main .main_container{
+    height: 100%;
+    overflow: auto;
+}
+
+/* 页脚样式 */
+#footer{
+    height: 49px;
+    border-top: 1px solid #dbe7ed;
+    background: #f1f9fc;
+    font-size: 12px;
+    color: #776d6d;
+    text-align: right;
+    line-height: 49px;
+    padding-right: 20px;
+}

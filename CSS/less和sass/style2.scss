@@ -1,0 +1,151 @@
+.box{
+    width: 100px;
+}
+
+// 单行注释，不会被编译出来
+
+/*
+    多行注释，就是css的注释方式，会被编译出来
+*/
+
+// 变量
+$number: 123px;
+// 插值
+$key: margin;
+$i: 3;
+
+.box#{$i}{
+    width: $number;
+    height: $number;
+
+    #{$key}: auto;
+}
+
+// 作用域  sass作用域有顺序
+.box2{
+    height: $number;
+    $number: 456px;
+    width: $number;
+}
+
+// 选择器嵌套
+ul{
+    list-style: none;
+    li{
+        float: left;
+        div{
+            margin: 10px;
+        }
+        p{
+            margin: 20px;
+        }
+    }
+    // 伪类嵌套
+    &:hover{
+        color: red;
+        // 属性嵌套
+        font: {
+            size: 10px;
+            weight: bold;
+            family: 宋体;
+        };
+    }
+}
+
+// 运算: 
+$num: 100px;
+.box4{
+    width: $num * 3;
+    height: $num + 10px;
+    // margin: 10em + $num; 单位不同不进行计算
+    font: 20px / 1.5;
+    // 转义：默认 / 是分割操作
+    padding: (20px / 1.5);
+    color: #010203 * 2;
+}
+
+
+// 自定义函数
+@function sum($n, $m){
+    @return $n + $m;
+}
+
+// 函数
+.box5{
+    width: round(3.5px);
+    height: percentage(0.2);
+    margin: random();   // 只有sass才有
+    //padding: sqrt(25%);
+    font-size: sum(4px, 5px);
+}
+
+
+// 混入
+@mixin show {
+    display: block;
+}
+@mixin hide($color) {
+    display: none;
+    color: $color;
+}
+
+.box6{
+    width: 100px;
+    @include show;
+    @include hide(red);
+}
+
+// 继承
+%line{
+    display: inline;
+}
+.box7{
+    @extend %line;
+}
+.box8{
+    @extend %line;
+}
+
+// 合并
+$background: (
+    a: url("a.png"),
+    b: url("b.png"),
+);
+$transform: (
+    a: scale(2),
+    b: rotate(30deg),
+);
+.box9{
+    background: map-values($background);
+    transform: zip(map-values($transform)...);
+}
+
+// 媒体查询
+.box10{
+    width: 100px;
+    @media all and (min-width: 768px) {
+        width: 600px;
+    }
+}
+
+// 条件
+$count: 3;
+
+.box11{
+    @if ($count > 4) {
+        width: 100px + $count;
+    }
+    @else{
+        width: 10px + $count;
+    }
+}
+
+//循环
+@for $i from 0 to 3 {
+    .box-#{$i}{
+        width: 100px + $i;
+    }
+}
+
+//导入
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 1px black solid;
+            margin: 100px;
+            display: flex;
+        }
+        #box div{
+            width: 50px;
+            height: 50px;
+            color: white;
+            background: red;
+            line-height: 50px;
+            text-align: center;
+        }
+        #box div:nth-child(2){
+            /* order: 1; */
+            color: black;
+            background: yellow;
+            /* flex-grow: 1; */
+            flex-shrink: 1;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        
+        <!-- <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div> -->
+
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>
