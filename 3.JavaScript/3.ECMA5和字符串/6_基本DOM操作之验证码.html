@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本DOM操作之验证码获取</title>
+    <style>
+        #box{
+            width: 120px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+            font-size: 26px;
+        }
+        button{
+            width: 120px;
+        }
+    </style>
+    <script src="../js/tool.js"></script>
+    <script>
+        /*
+            事件驱动函数
+
+            【注】通过id获取页面上对应的标签
+            document.getElementById(id);
+
+            node.innerHTML  标签间的内容
+         */
+
+        function btnClick(){
+            // 拿到div标签
+            let oDiv = document.getElementById("box");
+            oDiv.innerHTML = testCode(6);   // 给div重新赋值
+        }
+    </script>
+</head>
+<body>
+    <div id="box">000000</div>
+<!--    点击按钮，就会执行后面字符串中的代码-->
+    <button onclick="btnClick();">点击获取验证码</button>
+</body>
+</html>

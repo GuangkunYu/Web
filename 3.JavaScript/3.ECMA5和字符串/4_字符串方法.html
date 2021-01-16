@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串方法</title>
+    <script>
+        /*
+            字符串的方法1：
+                格式：字符串.函数名();
+                big()   用大号字体显示字符串
+                blink()     显示闪动字符串（IE下无效）
+                bold()  使用粗体显示字符串
+                fixed()     以打字机文本显示字符串
+                strike()    使用删除线来显示字符串
+                fontcolor()     使用指定颜色来显示字符串
+                fontsize（）     使用指定尺寸来显示字符串
+                link()  将字符串显示为链接
+                sub()   把字符串显示为下标
+                sup()   把字符串显示为上标
+            document.write()中使用，用特殊的样式输出该字符串
+         */
+
+        let str = "hello，北京";
+        // document.write(str.big());
+        // document.write(str.blink());
+        // document.write(str.bold());
+        // document.write(str.fixed());
+        // document.write(str.strike());
+        // document.write(str.fontcolor("red"));
+        // document.write(str.fontsize("30px"));
+        // document.write(str.link("https://www.baidu.com"));
+        // document.write(str.sub());
+        // document.write(str.sup());
+
+        /*
+            charCodeAt()
+                格式：字符串.charCodeAt(下标);
+                功能：访问字符串中对应下标字符的ASCII码值
+            String.fromCharCode();
+                格式：String.fromCharCode(码值1, 码值2,...);
+                功能：将传入的ASCII码值转成对应的字符串
+                返回值：组成的字符串
+         */
+
+        // alert(str.charCodeAt(1));
+        // alert(String.fromCharCode(97, 98, 99, 100));
+
+        /*
+            indexOf()
+                格式：supStr.indexOf(subStr, start);
+                参数：第一个参数，查找的字符串
+                     start 从哪个下标开始去查找，如果不传入，默认从下标0开始查找。
+                功能：在supStr中查找subStr第一次出现的位置，从start这个位置开始查找。
+                返回值：-1  说明没有查找到
+         */
+
+        let supStr = "abcabcabc";
+        // let subStr = "abcd";
+        let subStr = "abc";
+        // alert(supStr.indexOf(subStr, 4));
+        // alert(supStr.indexOf(subStr));
+
+        /*
+            lastIndexOf()
+                格式：supStr.lastIndexOf(subStr);
+                功能：在supStr中查找subStr最后一次出现的位置。
+                返回值：-1  说明没有查找到
+         */
+
+        // alert(supStr.lastIndexOf(subStr));
+
+        /*
+            search()
+                格式：supStr.search(subStr);
+                参数：字符串/正则表达式
+                功能：在supStr中查找subStr第一次出现的位置。
+                返回值：-1  说明没有查找到
+
+            正则表达式：
+                修饰符：i 忽略大小写
+                       g 全局匹配
+         */
+
+        let supStr1 = "Abcabcabc";
+        let subStr1 = /abc/i;
+        // alert(supStr1.search(subStr1));
+
+        /*
+            concat()  字符串拼接
+        */
+        let newStr6 = supStr1.concat(subStr);
+        let newStr7 = supStr1 + subStr;
+        alert(newStr6);
+        alert(newStr7);
+
+        /*
+            substring()
+                格式：字符串.substring(start, end);
+                功能：将字符串中[start, end)提取这部分字符，生成一个新字符串
+                返回值：新生成的字符串
+
+            substr()
+                格式：字符串.substring(start, length);
+                功能：将字符串中从开始位置提取指定长度的字符，生成一个新字符串
+                返回值：新生成的字符串
+
+            slice()(是数组的方法)
+                格式：字符串.slice(start, end);   [start, end)
+                功能：可以基于当前数组获取指定区域元素[start, end)，提取出元素生成新数组
+                返回值：生成的新数组，原数组不会发生任何的改变
+         */
+
+        // let newStr = str.substring(1, 4);
+        // let newStr = str.substr(1, 3);
+        let newStr = str.slice(1, 4);
+        // alert(newStr);
+        // alert(str);
+
+
+        /*
+            replace()
+                格式：supStr.replace(oldStr, newStr);
+                功能：用newStr将oldStr替换掉，生成新字符串
+                参数：
+                    第一个参数传入的字符串只能替换一次
+                    第一个参数  正则表达式
+                        /xxx/ig   i 忽略大小   g 全局匹配
+                返回值：替换成的新字符串
+         */
+
+        // let str2 = "how are you";
+        let str2 = "how are aRe are you";
+        // let newStr2 = str2.replace("are", "old are");
+        let newStr2 = str2.replace(/are/ig, "old are");
+        // alert(newStr2);
+        // alert(str2);
+
+        /*
+            split() 字符串分割
+                格式：字符串.split(分割符, length);
+                参数：
+                    第一个参数：用这个分割符对原字符串进行分割
+                    第二个参数：控制返回的数组的元素个数。一般情况下不使用
+                功能：用分割符对原字符串，进行字符串分割，将分割完毕以后的字串，放在数组中返回。
+                返回值：数组
+
+            注意：
+                1、相邻的两个分割符，会产生空字符串
+                2、分割符是空字符串""，直接将每一个字符，单独分割成字串，放在数组中返回
+         */
+
+        let str3 = "how aRe you";
+        let newStr3 = str3.split(" ");
+
+        /*
+            toLowerCase()   转成全小写
+            toUpperCase()   转成全大写
+         */
+
+        let newStr4 = str3.toLowerCase();
+        let newStr5 = str3.toUpperCase();
+        alert(newStr4);
+        alert(newStr5);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

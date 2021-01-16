@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认识对象</title>
+    <script>
+        /*
+            语法：
+                类：（在JavaScript中没有类这个概念，只有对象，ECMA6版本新增了类的概念）
+                    一类具有相同特征事物的抽象概念
+                对象：
+                    具体某一个个体，唯一的实例
+         */
+
+        /*
+            声明对象：
+                1、通过new运算符声明对象
+                2、通过省略new
+                3、对象常量赋值 （使用大括号，代表对象）
+
+         */
+
+        let obj1 = new Object();
+        let obj2 = Object();
+        let obj3 = {};
+
+        // 新增属性 使用起来和普通的变量没有区别
+        // obj3.username = '钢铁侠';
+        // 中括号填写的必须是字符串
+        obj3['username'] = '钢铁侠';
+        // obj3.age = 18;
+        obj3['age'] = 18;
+        // alert(obj3.username + ", " + obj3.age);
+
+        // 新增方法   使用起来和普通的函数没有任何区别
+        /*obj3.show = function(){
+            alert("我的名字叫：" + obj3.username + ", 今年 " + obj3.age + " 岁。")
+        };*/
+        obj3['show'] = function(){
+            alert("我的名字叫：" + obj3.username + ", 今年 " + obj3.age + " 岁。")
+        };
+        // obj3.show();
+
+        // 通过对象常量赋值
+        let obj4 = {
+            username: '钢铁侠',
+            age: 18,
+            show: function (){
+                alert("我的名字叫：" + obj3.username + ", 今年 " + obj3.age + " 岁。");
+            }
+        };
+        alert(obj4.username);
+        alert(obj4.age);
+        obj4.show();
+
+        /*
+            delete关键字   删除对象的属性或者方法
+         */
+
+        // delete obj3.age;
+        // alert(obj3.age);
+        // delete obj3.show;
+        // obj3.show();
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

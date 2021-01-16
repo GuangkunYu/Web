@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMA5严格模式</title>
+    <script>
+        /*
+            严格模式：写在哪个作用域下，就在哪个作用域下生效
+                "use strict"
+            【注】尽量注意不要严格模式写在全局。
+
+            用了严格模式，会有什么变化：
+                1、全局变量声明时，必须加声明变量的关键字
+                2、this无法指向全局变量
+                3、函数内重名属性
+                4、arguments对象
+                    arguments对象不允许被动态改变
+                5、新增保留字
+                    implements、interface、let、package、private、protected、public、static、yield
+        */
+
+        /*function show(){
+            num = 10;   // 强制声明成全局变量
+        }*/
+        function show() {
+            "use strict";
+            let num = 10;
+            alert(num);
+        }
+        show();
+        // alert(num);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            冒泡排序：
+                规则：前后两个数两两进行比较，如果复合交换条件就交换两个数位置
+                规律：冒泡排序每一轮排序，都可以找出一个较大的数，放在正确的位置
+                分析：
+                    比较轮数 =  数组长度 - 1
+                    每一轮比较的次数 = 数组长度 - 当前的轮数
+        */
+
+        let arr = [9, 8, 7, 6, 5, 4];   // 从小到大进行排序
+        function bubbleSort(arr) {
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let tmp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = tmp;
+                    }
+                }
+            }
+        }
+        bubbleSort(arr);
+        alert(arr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

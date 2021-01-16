@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            border: 1px solid black;
+            text-align: center;
+            padding: 40px;
+        }
+        #div1 input{
+            width: 200px;
+            height: 30px;
+            font-size: 18px;
+            margin: 10px auto 10px auto;
+        }
+        #div1 span{
+            font-size: 14px;
+            color: red;
+            display: block;
+            width: 100%;
+            height: 50px;
+            /*display: none;*/
+        }
+    </style>
+    <script src="../js/tool.js"></script>
+    <script>
+        /*
+            事件驱动函数  onclick
+                        onblur  失去焦点
+         */
+
+        function func(){
+            let oUsername = document.getElementById("username");
+            let oUsernameSpan = document.getElementById("username_span");
+
+            // 1.拿到输入框的内容
+            let oValue = oUsername.value;
+
+            // 2.判断
+            // （1）用户名长度是否符合要求
+            if (oValue.length < 6 || oValue.length > 18){
+                oUsernameSpan.innerHTML = " ！长度应该为6~18个字符";
+            }else if (!isABC(oValue[0])){
+                // (2) 首字符是不是字母
+                oUsernameSpan.innerHTML = " ！邮件地址必须以英文字母开头";
+            }else {
+                // (2) 判断是否都是数字、字母、下划线组成
+                let isYes = true;
+                for (let i = 0; i < oValue.length; i++){
+                    if (!isDEF(oValue[i])){
+                        isYes = false;
+                        break;
+                    }
+                }
+                if (isYes){
+                    oUsernameSpan.innerHTML = " √ 恭喜，该邮箱可以注册";
+                }else {
+                    oUsernameSpan.innerHTML = " ！邮箱地址需由字母、数字、或下划线组成";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input type="text" id="username" placeholder="用户名" onblur="func();">
+        <span id="username_span">6~18个字符，可使用字母、数字、下划线，需以字母开头</span>
+        <input type="text" placeholder="密码">
+    </div>
+</body>
+</html>

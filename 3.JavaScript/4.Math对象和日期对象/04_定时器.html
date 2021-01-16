@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <script>
+        /*
+            定时器
+                格式：
+                    setInterval(函数, 毫秒数);
+                功能：
+                    每隔对应的毫秒数，执行一次传入的函数
+                返回值：
+                    启动定时器时，系统分配的编号
+
+            clearInterval(timer)：取消定时器
+         */
+
+        let i = 0;
+        // 可以写匿名函数
+        function show(){
+            if (i === 6){
+                clearInterval(timer);
+            }
+            document.write(i++ + "<br>");
+        }
+        let timer = setInterval(show, 1000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

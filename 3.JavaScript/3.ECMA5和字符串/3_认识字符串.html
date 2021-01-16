@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认识字符串</title>
+    <script>
+        /*
+            字符串概念：
+                所有带单引号或者双引号的都叫字符串
+            字符串声明：
+                1、通过new运算符去声明字符串
+                2、省略new声明字符串
+                3、字符串常量赋值
+         */
+        let str1 = new String(100);
+        alert(typeof str1);
+
+        let str2 = String(100);
+        alert(typeof str2);
+
+        let str3 = "100";
+        alert(typeof str3);
+        // alert(str3 + 20);
+
+        /*
+            访问字符串中的字符：
+                字符串.length  访问字符串中字符的个数。
+                【注】中文 utf-8（三个字符表示一个汉字）  gbk（两个字符表示一个汉字）
+                    在计数的时候都是当做一个汉字计数
+
+            访问字符串中单个字符：
+                字符串.charAt(下标)   【注】从0开始的
+                字符串[下标]
+
+            【注】字符串是只读的，字符串一旦被声明就没有办法被修改，如果非要声明字符串，我们只能将原字符串销毁，重新生成新的字符串
+            【注】在js中，字符串既是基本数据类型，又是符合数据类型
+         */
+        let str4 = "hello北京";
+        // alert(str4.length);
+        // alert(str4.charAt(5));
+        // alert(str4[5]);
+
+        /*
+            字符串中的字符进行遍历也可以通过循环遍历
+         */
+        for (let i = 0; i < str4.length; i++){
+            document.write(str4[i] + '<br />');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

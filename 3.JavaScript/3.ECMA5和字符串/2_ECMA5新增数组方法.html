@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECMA5新增数组方法</title>
+    <script>
+        /*
+            indexOf()
+                格式：数组.indexOf(item, start);
+                参数：item 任意的数据
+                     start 下标，可以不传入，默认是0
+                功能：在数组中查找第一次出现item元素的下标，从start开始去查
+                返回值：-1 没有查找到
+                      >=0 查找到元素的下标
+        */
+
+        let arr = [10, 20, 30, 40, 50, 20, 30];
+        // let index = arr.indexOf(20);
+        // let index = arr.indexOf(20, 2);
+        let index = arr.indexOf(120);
+        // alert(index);
+
+        /*
+            数组遍历：
+                for循环
+                for...in...
+                forEach(ECMA5新增)
+        */
+
+        for (let i = 0; i < arr.length; i++){
+            document.write(arr[i] + "  " + i + "<br>");
+        }
+        document.write("-----------------------<br>");
+
+        for (let i in arr) {
+            document.write(arr[i] + "  " + i + "<br>");
+        }
+        document.write("-----------------------<br>");
+
+        arr.forEach(function (value, index, array){
+            /*
+                value当前遍历到的元素
+                index当前遍历到元素的下标
+                array数组本身
+            */
+            document.write(value + "  " + index +"  " + array + "<br>");
+        });
+
+        /*
+            map() 映射
+
+        */
+        let arrNew = arr.map(function (value, index, array){
+            // 遍历要做的事情  映射方法
+            return value * 2;
+        });
+
+        /*
+            filter() 过滤
+         */
+
+        let arrNew1 = arr.filter(function (value, index, array){
+            // 过滤条件
+            return value > 20;
+        });
+
+        /*
+            some 某些
+            【注】在数组中查找是否有符合条件的元素，有返回true，没有返回false
+                短路操作：只要查找到符合条件的元素，后面的循环就停止了
+         */
+
+        let arrNew2 = arr.some(function (value, index, array){
+            alert(value);
+            return value > 20;
+        });
+
+        /*
+            every 某一个
+            【注】在数组中查找每一个符合条件的元素，符合返回true，不符合返回false
+                短路操作：只要查找到不符合条件的元素，后面的循环就停止了
+         */
+        let arrNew3 = arr.some(function (value, index, array){
+            alert(value);
+            return value < 40;
+        });
+        // alert(arrNew3);
+        // alert(arr);
+
+
+        /*
+            reduce 归并
+         */
+        let arrNew4 = arr.reduce(function (prev, next, index, arr){
+            /*
+                prev 第一次是 下标为0的元素
+                     第二次开始 上一次遍历return的值
+                next 从下标1开始，当前遍历到的元素
+                arr 数组本身
+             */
+            alert(prev + ", " + next);
+            return prev + next;
+        });
+        alert(arrNew4);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

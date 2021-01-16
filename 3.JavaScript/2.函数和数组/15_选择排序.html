@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            选择排序：
+                规则：选出一个位置，这个位置上的数，和后面所有的数进行比较，如果比较出大小，就交换两个数位置
+                规律：每一轮都能选出一个最小的数，放在正确的位置。
+            分析：
+                比较的轮数 = 数组长度 -1
+                每一轮比较的次数 = 数组长度 - 当前的轮数
+        */
+        let arr = [9, 8, 7, 6, 5, 4];
+        function selectSort(arr) {
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[i] > arr[j]) {
+                        let tmp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmp;
+                    }
+                }
+            }
+        }
+        selectSort(arr);
+        alert(arr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

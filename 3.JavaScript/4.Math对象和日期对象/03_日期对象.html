@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期对象</title>
+    <script>
+        /*
+            日期对象声明：
+                1、没有传入参数，默认当前系统时间
+                2、传入参数
+                    "2000-02-02"
+                    "2000/01/01"
+                    按照顺序，分别传入参数   年 月 日 时 分 秒 毫秒
+                    【注】在国外月份是从0开始数的 0~11
+                    直接传入毫秒数  1秒=1000毫秒
+         */
+
+        let date = new Date();
+        // let date = new Date("2000-02-02");
+        // let date = new Date("2000/01/01");
+        // let date = new Date(2000, 1, 1, 8, 30, 50);
+        // let date = new Date(1000);
+        // alert(date);
+
+        /*
+            日期对象的方法1：
+                .toDateString()         以特定的格式显示星期几、月、日和年
+                .toTimeString()         以特定的格式显示时、分、秒和时区
+                .toLocaleDateString()   以特定地区格式显示星期几、月、日和年
+                .toLocaleTimeString()   以特定地区格式显示时、分、秒和时区
+                .toUTCString()          以特定的格式显示完整的UTC日期
+         */
+
+        // alert(date.toDateString());
+        // alert(date.toTimeString());
+        // alert(date.toLocaleDateString());
+        // alert(date.toLocaleTimeString());
+        // alert(date.toUTCString());
+
+        /*
+            日期对象方法2：
+                set/getDate()       从Date对象中返回一个月中的某一天（1-31）
+                getDay()            从Date对象返回一周中的某一天（0-6）
+                set/getMonth()      从Date对象中返回月份（0-11）
+                set/getFullYear()   从Date对象以四位数返回年份
+                set/getHours()      返回Date对象的小时（0-23）
+                set/getMinutes()    返回Date对象的分钟（0-59）
+                set/getSeconds()    返回Date对象的秒数（0-59）
+                set/getMilliseconds()   返回Date对象的毫秒
+                set/getTime()       返回1970年1月1日至今的毫秒数
+                getTimezoneOffset() 返回本地时间与格林威治标准时间（GMT）的分钟差
+         */
+
+        function showTime(){
+            let d = new Date();
+
+            let year = d.getFullYear();
+            let mon = doubleNum(d.getMonth() + 1);
+            let day = doubleNum(d.getDate());
+            let week = numToChinese(d.getDay());
+            let hour = doubleNum(d.getHours());
+            let min = doubleNum(d.getMinutes());
+            let sec = doubleNum(d.getSeconds());
+
+            return year+"年"+mon+"月"+day+"日 星期"+week+" "+hour+":"+min+":"+sec;
+        }
+
+        function numToChinese(num){
+            let arr = ["日", "一", "二", "三", "四", "五", "六"];
+            return arr[num];
+        }
+
+        function doubleNum(n){
+            if (n < 10) {
+                return "0" + n;
+            }else {
+                return n;
+            }
+        }
+        document.write(showTime());
+
+        /*
+            【注】所有的参照时间点都是1970年
+                Date.parse()
+                    格式：Date.parse(日期对象);
+                    功能：将日期对象转成毫秒数
+                d.set/getTime();
+                    格式：日期对象.set/getTime();
+                    功能：将当前日期对象转成毫秒数
+         */
+
+        // alert(Date.parse(date)); // 1610698086000
+        // alert(date.getTime()); // 1610698086033
+
+        /*
+            获取两个日期之间相差的天数
+            规定：传入日期格式‘
+                "2020-01-01"
+                "2020/01/01"
+         */
+
+        function countOfDate(d1, d2){
+            let dd1 = new Date(d1);
+            let dd2 = new Date(d2);
+
+            let time1 = dd1.getTime();
+            let time2 = dd2.getTime();
+
+            let time = Math.abs(time1 - time2);
+
+            return parseInt(String(time / 1000 / 3600 / 24));
+        }
+
+        // alert(countOfDate("2008-08-08", "2019/10/09"));
+
+        /*
+            输入n，输出n天后的时间
+         */
+
+        function afterOfDate(n){
+            let d = new Date();
+            let day = d.getDate();
+            d.setDate(day + n);
+            return d;
+        }
+        alert(afterOfDate(17));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
