@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>open方法</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+    <script>
+        /*
+            open()
+                第一个参数：跳转的URL 打开一个新窗口，加载URL
+                第二个参数：字符串，给打开的窗口起一个名字
+                第三个参数：一串特殊含义的字符串
+         */
+
+        function btnClick(){
+            // window.open();
+            open("https://www.baidu.com", "xxx", "width=400,height=400,top=200,left=500");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="btnClick();">打开窗口</button>
+</body>
+</html>

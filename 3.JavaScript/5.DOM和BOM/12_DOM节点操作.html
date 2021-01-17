@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM节点操作</title>
+    <script>
+        /*
+            document.write()
+                【注】会覆盖页面上原有的内容
+
+            createElement()
+                格式：document.createElement()
+                参数：标签名
+                返回值：创建好的这个节点
+
+            appendChild()
+                格式：node1.appendChild(node2);
+                功能：将node2节点插入到node1节点子节点的末尾
+
+             createTextNode()
+                格式：document.createTextNode(文本)
+                功能：创建文本节点（纯文本）
+
+             insertBefore()
+                格式：box1.parentNode.insertBefore(box2, box1);
+                功能：将box2添加到box1的前面
+
+             replaceChild()
+                格式：box1.parentNode.replaceChild(box2, box1);
+                功能：用box2节点将box1节点替换掉
+
+             cloneNode()
+                格式：node.cloneNode()
+                格式2：node.cloneNode(true)  克隆节点本身和子节点
+                返回值：克隆的新节点
+
+             removeChild()
+                格式：box.parentNode.removeChild(box);
+                功能：将box节点删除
+         */
+        window.onload = function () {
+            let oDiv = document.getElementById("div1");
+            let oBtn = document.getElementById("btn1");
+            oBtn.onclick = function () {
+                // document.write("<h1>hello world</h1>")
+
+                // 创建一个新节点
+                let oP = document.createElement("p");
+
+                // 在节点中添加内容
+                oP.appendChild(document.createTextNode("<h1>hello world</h1>"))
+
+                // 将创建好的节点插入到父节点的子节点的末尾
+                // oDiv.appendChild(oP);
+
+                // 将p插入到div前面
+                // document.body.insertBefore(oP, oDiv);
+
+                // 用p节点替换div节点
+                // document.body.replaceChild(oP, oDiv);
+
+                // 在body的末尾克隆div节点
+                // document.body.appendChild(oDiv.cloneNode())
+                // document.body.appendChild(oDiv.cloneNode(true));
+
+                // 删除节点
+                document.body.removeChild(oDiv);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <em>em</em>
+        div文本
+        <strong>strong</strong>
+    </div>
+    <button id="btn1">节点操作</button>
+</body>
+</html>

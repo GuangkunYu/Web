@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute和元素节点属性</title>
+    <script>
+        /*
+            setAttribute()
+            getAttribute()
+            removeAttribute()
+         */
+        window.onload = function (){
+            let oDiv = document.getElementById("div1");
+            // oDiv.setAttribute()
+            // oDiv.getAttribute()
+            // oDiv.removeAttribute()
+
+            /*
+           attribute和 . 获取属性的区别：
+               1、class访问的区别
+               2、支持自定义属性
+               3、设置属性的方式
+               4、删除属性的方式
+            */
+
+            // alert(oDiv.id);
+            // alert(oDiv.getAttribute("id"));
+
+            // alert(oDiv.style.aaa = "bbb");
+            // oDiv.setAttribute("ccc", "ddd");
+            //
+            // oDiv.className = '';
+            // oDiv.removeAttribute("ccc");
+
+            /*
+                innerHTML   获取标签间内容 会解析标签
+                innerText   获取标签间纯文本    不会解析标签，设置纯文本
+
+                outerHTML 从外标签开始到外标签结束
+             */
+
+            // alert(oDiv.innerHTML);
+            // alert(oDiv.innerText);
+
+            alert(oDiv.outerHTML);
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <div id="div1" title="hello" class="box">div文本 <span>span文本</span> <em>em文本</em></div>
+</body>
+</html>

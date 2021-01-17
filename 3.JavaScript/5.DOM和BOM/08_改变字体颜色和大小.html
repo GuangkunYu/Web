@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改变字体大小和颜色</title>
+    <!--    <style>-->
+    <!--        div{-->
+    <!--            color: rgb(255, 255, 255);-->
+    <!--        }-->
+    <!--    </style>-->
+    <script>
+        /*
+            写一个定时器，每隔1s修改一次div内文本颜色和文字大小。
+            最开始这个文字是默认大小，大小开始增大，当增大了6次后，
+                文字大小开始缩小，缩小6次后，文字再开始增大
+         */
+        window.onload = function () {
+            let oDiv1 = document.getElementById("div1");
+            let count = 0;
+            let speed = 5;
+
+            setInterval(function () {
+                oDiv1.style.color = randomColor();
+
+                let fontsize = parseInt(getComputedStyle(oDiv1)["fontSize"]);
+
+                oDiv1.style.fontSize = (fontsize + speed) + "px";
+
+                count ++;
+                if (count % 6 === 0){
+                    speed *= -1;
+                }
+            }, 1000);
+        }
+
+        function randomColor() {
+            return "rgb(" + parseInt(String(Math.random() * 256)) + ", " + parseInt(String(Math.random() * 256)) + ", " + parseInt(String(Math.random() * 256)) + ")";
+        }
+    </script>
+</head>
+<body>
+<div id="div1">改变字体大小和颜色</div>
+</body>
+</html>

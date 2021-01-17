@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认识DOM</title>
+    <script>
+        /*
+            DOM: 文档对象模型
+                节点类型：
+                    元素节点 <div></div>
+                    属性节点 id="div1"
+                    文本节点 div文本
+
+            元素节点的获取：
+                document.getElementById(id)
+                功能：通过id获取符合条件的元素（ID必须是唯一值）
+                返回值：就是符合条件的一个节点
+         */
+
+        // 这个里面的代码是整个页面加载完成以后执行
+        window.onload = function (){
+            let oDiv = document.getElementById("div1");
+            // alert(oDiv);
+
+            /*
+                获取行间属性的值
+             */
+
+            // alert(oDiv.id);
+            // alert(oDiv.title);
+            // alert(oDiv.className);
+
+            // 设置行间属性的值
+            oDiv.id = "div2";
+            oDiv.title = "world";
+            oDiv.className = "box4";
+
+            // 只能访问标签行间的css样式
+            alert(oDiv.style.backgroundColor = "blue")
+        }
+    </script>
+</head>
+<body>
+    <div id="div1" class="box" title="hello" style="width: 300px; height: 300px; background: red">div文本</div>
+</body>
+</html>

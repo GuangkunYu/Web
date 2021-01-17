@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认识BOM</title>
+    <script>
+        /*
+            BOM: 浏览器对象模型
+         */
+
+        /*
+            系统对话框：
+                window 方法（一般情况下，window可以省略）：
+                    alert() 弹出警告框
+                    confirm() 弹出一个带确定和取消的提示框
+                        返回值：如果点击确定，返回true
+                              如果点击取消，返回false
+                    prompt() 弹出一个带输入框的提示框
+                        参数：
+                            第一个参数：面板上显示的内容
+                            第二个参数：输入框里面的默认内容（可以不传）
+         */
+
+        let res = prompt("请输入内容", "100");
+        alert(res);
+
+        // let res = confirm("你确定要离开吗？");
+        // alert(res);
+
+        // alert("hello");
+        // window.alert("world");
+
+        // var num = 10;
+        // alert(num);
+        // alert(window.num);
+
+        // function show(){
+        //     alert("hello world");
+        // }
+        // show();
+        // window.show();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
