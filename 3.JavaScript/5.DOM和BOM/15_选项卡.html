@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        button{
+            width: 80px;
+            height: 30px;
+            background: gray;
+        }
+        button.active{
+            background: orange;
+            color: blue;
+        }
+
+        #div1 div{
+            width: 260px;
+            height: 300px;
+            border: 1px solid black;
+            display: none;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            let oDiv1 = document.getElementById("div1");
+            let aBtns = oDiv1.getElementsByTagName("button");
+            let aDivs = oDiv1.getElementsByTagName("div");
+
+            // 给每一个按钮添加点击
+            for (let i = 0; i < aBtns.length; i++){
+                aBtns[i].onclick = function (){
+                    for (let j = 0; j < aBtns.length; j++){
+                        aBtns[j].className = "";
+                        aDivs[j].style.display = "none";
+                    }
+                    this.className = "active";
+                    aDivs[i].style.display = "block";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <button class="active">HTML5</button>
+        <button>Python</button>
+        <button>Java</button>
+        <div style="display: block">
+            HTML5是构建Web内容的一种语言描述方式。HTML5是互联网的下一代标准，是构建以及呈现互联网内容的一种语言方式．被认为是互联网的核心技术之一。HTML产生于1990年，1997年HTML4成为互联网标准，并广泛应用于互联网应用的开发。
+        </div>
+        <div>
+            Python由荷兰数学和计算机科学研究学会的Guido van Rossum 于1990 年代初设计，作为一门叫做ABC语言的替代品。 [1]  Python提供了高效的高级数据结构，还能简单有效地面向对象编程。Python语法和动态类型，以及解释型语言的本质，使它成为多数平台上写脚本和快速开发应用的编程语言， [2]  随着版本的不断更新和语言新功能的添加，逐渐被用于独立的、大型项目的开发。 [3]
+        </div>
+        <div>
+            Java 是由 Sun Microsystems 公司于 1995 年 5 月推出的高级程序设计语言。
+            Java 可运行于多个平台，如 Windows, Mac OS 及其他多种 UNIX 版本的系统。
+        </div>
+    </div>
+
+</body>
+</html>

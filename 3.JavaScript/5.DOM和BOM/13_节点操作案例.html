@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点操作案例</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 80px;
+            background: gray;
+        }
+        #div1 input{
+            width: 96%;
+            height: 50%;
+        }
+        #div1 button{
+            height: 42%;
+            width: 31%;
+        }
+        #div2{
+            width: 200px;
+            height: 400px;
+            background: orange;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let oDiv2 = $("div2");
+            let oTxt = $("txt");
+
+            $("btn1").onclick = function () {
+                let oP = document.createElement("p");
+                oP.appendChild(document.createTextNode(oTxt.value));
+                oDiv2.appendChild(oP);
+            };
+
+            $("btn2").onclick = function () {
+                let oP = oDiv2.lastElementChild;
+                oDiv2.removeChild(oP);
+            };
+
+            $("btn3").onclick = function () {
+                let oP = oDiv2.lastElementChild;
+                let newOp = oP.cloneNode(true);
+                oDiv2.appendChild(newOp);
+            };
+        }
+
+        function $(id){
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input id="txt" type="text" placeholder="请输入内容">
+        <button id="btn1">增加</button>
+        <button id="btn2">删除</button>
+        <button id="btn3">拷贝</button>
+    </div>
+    <div id="div2">
+
+    </div>
+</body>
+</html>

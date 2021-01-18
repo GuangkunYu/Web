@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this和找到当前点击按钮下标</title>
+    <script>
+        window.onload = function () {
+            let oBtns = document.getElementsByTagName("button");
+            for (var i = 0; i < oBtns.length; i++){
+                // 给每一个按钮添加一个自定义属性
+                oBtns[i].index = i;
+                oBtns[i].onclick = function () {
+                    // alert(this);
+                    console.log(this.index);
+                }
+            }
+            alert("循环结束" + i);
+        }
+
+        /*
+            this概念：只要封装函数，任何一个函数系统都会内置一个叫做this的变量
+                     this变量存储的是地址，是当前函数主人的地址
+
+                【注】this永远指向当前函数的主人。函数的主人要通过当前上下文判断
+         */
+
+        /*
+            常用的情况
+         */
+
+        let person = {
+            username: "钢铁侠",
+            sex: "男",
+            show: function (){
+                console.log(person.username);
+                console.log(this.username);
+            }
+        }
+        // person.show();
+
+        function show(){
+            console.log(this);
+        }
+        // show();
+        // window.show();
+
+        /*window.onload = function () {
+            let oBtn = document.getElementById("btn1");
+            oBtn.onclick = function () {
+                alert(this);
+                // console.log(this);
+            }
+        }*/
+    </script>
+</head>
+<body>
+<!--    <button id="btn1">btn1</button>-->
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+</body>
+</html>

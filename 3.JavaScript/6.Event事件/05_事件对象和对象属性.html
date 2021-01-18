@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象和对象属性</title>
+    <script>
+        /*
+            事件绑定：
+                元素节点.on + 事件类型 = 匿名函数;
+            【注】系统会在事件绑定一旦完成的时候，生成一个事件对象
+
+            【注】触发事件的时候，系统会自动去调用事件绑定的函数。将事件对象当做第一个参数传入
+
+            事件对象：
+                button的属性:
+                    0   左键
+                    1   滚轮
+                    2   右键
+                获取当前鼠标位置：(原点位置不一样)
+                    clientX   clientY   原点位置：可视窗口的左上角为原点
+                    pageX     pageY             整个页面的左上角（包含滚出去的滚动距离）
+                    screenX   screenY           电脑屏幕的左上角
+
+         */
+
+        window.onload = function () {
+            let oBtn = document.getElementById("btn");
+
+            /*oBtn.onclick = function (ev) {
+                // 事件对象获取的方式，固定写法
+                let e = ev  || window.event;
+                // alert(e);
+            }*/
+
+            document.onmousedown = function (ev) {
+                let e = ev || window.event;
+
+                // alert(e.button);
+                // alert(e.clientX +  ", " + e.clientY);
+                // alert(e.pageX +  ", " + e.pageY);
+                alert(e.screenX +  ", " + e.screenY);
+            }
+        }
+    </script>
+</head>
+<body style="height: 3000px">
+    <h1>hello world</h1>
+    <button id="btn">按钮</button>
+</body>
+</html>

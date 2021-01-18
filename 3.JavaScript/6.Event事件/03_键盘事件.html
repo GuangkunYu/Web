@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <script>
+        /*
+            键盘事件（表单元素、全局window）：
+                keydown     键盘按下（如果按下不放手，会一直触发）
+                keyup       键盘抬起
+                keypress    键盘按下（只支持字符键）
+
+         */
+
+        window.onload = function () {
+            let i = 0;
+            /*window.onkeydown = function () {
+                document.title = i++;
+            }*/
+            window.onkeyup = function () {
+                document.title = "抬起";
+            }
+
+            window.onkeypress = function () {
+                document.title = i++;
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

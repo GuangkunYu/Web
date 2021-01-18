@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件练习</title>
+    <style>
+        #div1{
+            width: 600px;
+            height: 600px;
+            background: url("../img/2.gif") no-repeat;
+            position: absolute;
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let oDiv = document.getElementById("div1");
+            document.onmousemove = function (ev) {
+                let e = ev || window.event;
+
+                oDiv.style.left = e.clientX - 300 + "px";
+                oDiv.style.top = e.clientY - 300 + "px";
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

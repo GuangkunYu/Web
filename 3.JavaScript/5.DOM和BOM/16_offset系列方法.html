@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset系列方法</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            border: 1px solid black;
+            padding: 8px;
+            margin: 20px;
+        }
+    </style>
+    <script>
+        /*
+            offsetWidth     // width + border + padding
+            offsetHeight
+            offsetLeft      // 眼睛能看到实际距离第一个有定位的父节点的距离
+            offsetTop
+         */
+
+        window.onload = function (){
+            let oDiv = document.getElementById("div1");
+            // console.log(getStyle(oDiv, "width"));
+
+            console.log(oDiv.offsetWidth);
+            console.log(oDiv.offsetLeft);
+            console.log(oDiv.offsetTop);
+        }
+
+        // 跨浏览器的兼容
+        function getStyle(node, cssStyle) {
+            return node.currentStyle ? node.currentStyle[cssStyle] : getComputedStyle(node)[cssStyle];
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

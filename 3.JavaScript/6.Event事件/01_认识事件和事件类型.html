@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认识事件和事件类型</title>
+    <style>
+        #div1{
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+    </style>
+    <script>
+        /*
+            事件：
+                事件是发生并得到处理的操作。
+
+            事件绑定方式：
+                1、内联模式
+                2、外联模式/脚本模式
+
+            绑定事件格式：
+                元素节点.on + 事件类型 = 匿名函数。
+
+                click  事件类型
+                onclick  事件处理的函数
+
+            事件类型的种类：
+                1、鼠标事件（可以绑定在任意的元素节点上）
+                    click           单击
+                    dblclick        双击
+                    mouseover       鼠标移入
+                    mouseout        鼠标移出
+                    mousemove       鼠标移动（会不停的触发）
+                    mousedown       鼠标按下
+                    mouseup         鼠标抬起
+                    mouseenter      鼠标移入
+                    mouseleave      鼠标移出
+
+                2、键盘事件
+
+                3、HTML事件
+                    （1）window事件
+                    （2）表单事件
+         */
+
+        function btnClick(){
+            console.log("内联模式");
+        }
+
+        window.onload = function () {
+            let btn = document.getElementById("btn");
+            btn.onclick = function () {
+                console.log("外链模式");
+            }
+
+
+            let btn1 = document.getElementById("btn1");
+
+            btn1.ondblclick = function () {
+                console.log("双击");
+            }
+
+            btn1.onmouseover = function () {
+                btn1.style.backgroundColor = "red";
+            }
+
+            btn1.onmouseout = function () {
+                btn1.style.backgroundColor = "blue";
+            }
+
+            btn1.onmousedown = function () {
+                btn1.innerHTML = "按下";
+            }
+            btn1.onmouseup = function () {
+                btn1.innerHTML = "抬起";
+            }
+
+
+            let oDiv1 = document.getElementById("div1");
+            let i = 0;
+            oDiv1.onmousemove = function () {
+                oDiv1.innerHTML = i++;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="btnClick();">内联模式</button>
+    <button id="btn">外联模式</button>
+    <button id="btn1">按钮1</button>
+    <div id="div1"></div>
+</body>
+</html>

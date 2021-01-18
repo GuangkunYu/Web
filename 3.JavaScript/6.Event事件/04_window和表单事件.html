@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window和表单事件</title>
+    <script>
+        /*
+            window事件：
+                load        当页面加载完成后会触发
+                unload      当页面解构的时候触发（刷新页面、关闭当前页面） IE浏览器兼容
+                scroll      页面滚动事件
+                resize      窗口大小发生变化的时候触发
+
+            表单事件
+                blur    失去焦点
+                focus   获取焦点
+                select  当在输入框选中文本的时候触发
+                change  当对输入框的文本进行修改并失去焦点的时候触发
+
+               【注】必须添加在form元素上
+                submit  当点击submit上的按钮才能触发
+                reset   当点击reset上的按钮才能触发
+         */
+
+        window.onload = function () {
+            // alert(2);
+            let i = 0;
+          /*  window.onscroll = function () {
+                document.title = i++;
+            }*/
+           /* window.onresize = function () {
+                document.title = i++;
+            }*/
+            
+            let oInput = document.getElementById("input1");
+            /*oInput.onblur = function () {
+                oInput.value = "失去焦点";
+            }
+            oInput.onfocus = function () {
+                oInput.value = "获取焦点";
+            }
+            oInput.onselect = function () {
+                alert("选中文本");
+            }*/
+            oInput.onchange = function () {
+                alert("修改文本");
+            }
+
+            let oF1 = document.getElementById("f1");
+            oF1.onsubmit = function () {
+                alert("提交");
+            }
+            oF1.onreset = function () {
+                alert("重置");
+            }
+        }
+    </script>
+</head>
+<body style="height: 2000px">
+    <h1>hello world</h1>
+    <input type="text" value="默认文本" id="input1">
+
+    <form id="f1" action="">
+        <input type="text">
+        <input type="submit">
+        <input type="reset">
+    </form>
+</body>
+<!--<script>-->
+<!--    alert(1);-->
+<!--</script>-->
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文档碎片</title>
+    <script>
+
+
+        window.onload = function () {
+
+            /*
+                创建10w个节点，添加到页面上
+            */
+
+            console.time("test1");
+
+            for (let i = 0; i < 1000000; i++){
+                let newDiv = document.createElement("div");
+                document.body.appendChild(newDiv);
+            }
+
+            console.timeEnd("test1");
+
+            /*
+                先创建好10w个节点，将10w节点插入到一个节点上，最后将这一个节点添加到页面上
+              */
+
+            console.time("test2");
+
+            let oneDiv = document.createElement("div");
+
+            for (let i = 0; i < 1000000; i++){
+                let newDiv = document.createElement("div");
+                oneDiv.appendChild(newDiv);
+            }
+            document.body.appendChild(oneDiv);
+
+            console.timeEnd("test2");
+
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

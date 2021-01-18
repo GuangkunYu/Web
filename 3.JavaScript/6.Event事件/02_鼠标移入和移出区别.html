@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入和移出区别</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin: 20px auto;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            background: whitesmoke;
+            display: inline-block;
+            margin: 50px 50px 50px 50px;
+        }
+    </style>
+    <script>
+        /*
+            【注】经过子节点会重复触发
+                mouseover       鼠标移入
+                mouseout        鼠标移出
+
+            【注】经过子节点不会重复触发。IE8以后才有
+                mouseenter      鼠标移入
+                mouseleave      鼠标移出
+         */
+        window.onload = function () {
+            let aDivs = document.getElementsByTagName("div");
+
+            let i = 0;
+            aDivs[0].onmouseover = function () {
+                let oSpan = this.getElementsByTagName("span")[0];
+                oSpan.innerHTML = i++;
+            }
+
+            let j = 0;
+            aDivs[1].onmouseenter = function () {
+                let oSpan = this.getElementsByTagName("span")[0];
+                oSpan.innerHTML = j++;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <span>mouseover</span>
+    </div>
+    <div>
+        <span>mouseenter</span>
+    </div>
+</body>
+</html>
