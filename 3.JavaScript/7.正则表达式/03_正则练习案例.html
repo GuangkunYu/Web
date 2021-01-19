@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>正则练习案例</title>
+		<script>
+			/*
+				1、匹配文件是否是压缩包
+					zip rar gz
+			 */
+			let str = "Jetbrains2020.3及以上版本激活补丁_520xiazai.zip";
+			let re = /^.+\.(zip|rar|gz)$/;
+			// alert(re.test(str));
+
+			/*
+				验证是否是正确的手机号码
+
+			 */
+			let phone = "1769310285";
+			let re_ph = /^1\d{10}$/;
+			// alert(re_ph.test(phone));
+
+			/*
+				验证是否是身份证号码
+			 */
+			let re_id = /^[1-9]\d{16}(\d|x)$/;
+
+			/*
+				验证是否是纯中文
+			 */
+			let re_cn = /^[\u4e00-\u9fa5]+$/;
+			let cn = "我爱北京";
+			alert(re_cn.test(cn));
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

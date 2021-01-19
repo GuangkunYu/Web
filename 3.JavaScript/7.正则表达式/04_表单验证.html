@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>表单验证</title>
+		<style>
+			#div1{
+				width: 300px;
+				height: 300px;
+				background: gray;
+				box-sizing: border-box;
+				padding: 30px;
+			}
+			p{
+				height: 50px;
+				font-size: 14px;
+				text-align: center;
+				color: black;
+			}
+			input{
+				width: 230px;
+				height: 30px;
+				font-size: 18px;
+			}
+			.testCode{
+				width: 70px;
+				height: 30px;
+				line-height: 30px;
+				background-color: lightslategray;
+				float: left;
+				margin-left: 7px;
+				margin-top: 10px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			window.onload = function () {
+				let oDiv = document.getElementById("div1");
+				let name = oDiv.getElementsByTagName("input")[0];
+				let oP = oDiv.getElementsByTagName("p")[0];
+
+				name.onblur = function () {
+					let oValue = name.value;
+
+					if (oValue === ""){
+						oP.innerHTML = "！用户名不能为空";
+						oP.style.color = "red";
+					}else if (oValue.length < 6 || oValue.length > 18){
+						oP.innerHTML = "！长度应为6~18个字符";
+						oP.style.color = "red";
+					}else if (!/[a-zA-Z]/.test(oValue[0])){
+						oP.innerHTML = " ！邮件地址必须以英文字母开头";
+						oP.style.color = "red";
+					}else if (/\W/.test(oValue)){
+						oP.innerHTML = " ！邮箱地址需由字母、数字、或下划线组成";
+						oP.style.color = "red";
+					}else {
+						oP.innerHTML = " √ 恭喜，该邮箱可以注册";
+						oP.style.color = "green";
+					}
+				}
+
+				// 密码强度
+				/*
+					强   三种都有
+					中   两两混合
+					弱   纯数字 纯小写 纯大写
+				 */
+				let pW = oDiv.getElementsByTagName("input")[1];
+				let aDiv = oDiv.getElementsByClassName("testCode");
+
+				pW.onkeyup = function () {
+					let oPwd = this.value;
+					// 每次触发之前清楚样式
+					for (let i=0; i<aDiv.length; i++){
+						aDiv[i].style.backgroundColor = "lightslategray";
+					}
+					if (oPwd.length >= 6){
+						if (/^\d+$/.test(oPwd) || /^[a-z]+$/.test(oPwd) || /^[A-Z]+$/.test(oPwd)){
+							aDiv[0].style.backgroundColor = "orange";
+						}else if(/\d/.test(oPwd) && /[a-z]/.test(oPwd) && /[A-Z]/.test(oPwd)){
+							aDiv[2].style.backgroundColor = "orange";
+						}else {
+							aDiv[1].style.backgroundColor = "orange";
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<input type = "text" placeholder="用户名">
+			<p>6-18个字符，可使用字母、数字、下划线，需以字母开头</p>
+			<input type = "password" placeholder="密码">
+			<div class="testCode">弱</div>
+			<div class="testCode">中</div>
+			<div class="testCode">强</div>
+		</div>
+	</body>
+</html>

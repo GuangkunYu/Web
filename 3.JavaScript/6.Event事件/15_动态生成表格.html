@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>动态生成表格</title>
+		<style>
+			#t1 tr td{
+				width: 100px;
+				height: 30px;
+			}
+			.box0{
+				background-color: red;
+			}
+			.box1{
+				background: blue;
+			}
+		</style>
+		<script>
+			window.onload = function () {
+				let oRow = document.getElementById("row");
+				let oCol = document.getElementById("col");
+				let oBtn = document.getElementById("btn");
+				let oT = document.getElementById("t1");
+
+				// 给表格上的删除按钮添加事件委托
+				oT.onclick = function (ev) {
+					let e = ev || window.event;
+					let target = e.target || window.event.srcElement;
+					if (target.nodeName.toLowerCase() === "button"){
+						oT.removeChild(target.parentNode.parentNode);
+					}
+				}
+
+				oBtn.onclick = function () {
+					if (!oRow.value || !oCol.value){
+						alert("请输入行列内容，生成表格");
+					}else {
+						// 行
+						for (let i = 0; i < oRow.value; i++){
+							let oTr = document.createElement("tr");
+							if (i%2===0){
+								oTr.className = "box0";
+							}else {
+								oTr.className = "box1";
+							}
+							for (let j = 0; j < oCol.value; j++){
+								let oTd = document.createElement("td");
+								oTr.appendChild(oTd);
+							}
+							// 添加删除按钮
+							let oClose = document.createElement("td");
+							oClose.innerHTML = "<button>删除</button>";
+							oTr.appendChild(oClose);
+							oT.appendChild(oTr);
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type = "text" placeholder="行" id="row" />
+		<input type = "text" placeholder="列" id="col" />
+		<button id="btn">生成</button>
+		<table id="t1" border="1"></table>
+	</body>
+</html>

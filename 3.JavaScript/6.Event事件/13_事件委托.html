@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>事件委托</title>
+        <script>
+            /*window.onload = function () {
+                let oUl = document.getElementById("ul1");
+                let aLis = oUl.getElementsByTagName("li");
+
+                // 添加点击事件
+                for (let i = 0; i < aLis.length; i++) {
+                    aLis[i].onclick = function () {
+                        this.style.backgroundColor = "blue";
+                    }
+                }
+
+                let oBtn = document.getElementById("btn1");
+                let i = 6;
+                oBtn.onclick = function () {
+                    let newNode = document.createElement("li");
+                    newNode.innerHTML = (i++) * 11111;
+                    oUl.appendChild(newNode);
+                }
+            }*/
+
+            /*
+                问题：
+                    1、浪费
+                    2、后添加的节点没有点击事件
+             */
+
+            /*
+                委托：
+					A委托B去买饭
+					A发布任务   委托方
+					B执行任务   代理方
+
+				事件委托实现步骤：
+					1、找到当前节点的父节点或者祖先节点
+					2、将事件添加到你找到的这个父节点或者祖先节点上
+					3、找到触发对象，判断触发对象是否是想要的触发对象，进行后续的操作
+
+				li委托ul将li变成红色
+             */
+
+            window.onload = function () {
+				let oUl = document.getElementById("ul1");
+				oUl.onclick = function (ev) {
+					let e = ev || window.event;
+					let target = e.target || window.event.srcElement;
+					// console.log(target.nodeName)
+					if (target.nodeName.toLowerCase() === "li"){
+						target.style.backgroundColor = "red";
+					}
+				}
+
+	            let oBtn = document.getElementById("btn1");
+	            let i = 6;
+	            oBtn.onclick = function () {
+		            let newNode = document.createElement("li");
+		            newNode.innerHTML = (i++) * 11111;
+		            oUl.appendChild(newNode);
+	            }
+            }
+        </script>
+    </head>
+    <body>
+        <button id="btn1">新增节点</button>
+        <ul id="ul1">
+            <li>11111</li>
+            <li>22222</li>
+            <li>33333</li>
+            <li>44444</li>
+            <li>55555</li>
+        </ul>
+    </body>
+</html>

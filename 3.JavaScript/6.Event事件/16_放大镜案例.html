@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>放大镜案例</title>
+		<style>
+			img{width: 400px;}
+			#small{
+				width: 400px;
+				height: 240px;
+				position: absolute;
+				left: 50px;
+				top: 100px;
+			}
+			#mark{
+				width: 100px;
+				height: 100px;
+				background: white;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+				cursor: move;
+			}
+			#big{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				left: 500px;
+				top: 100px;
+				position: absolute;
+				display: none;
+				overflow: hidden;
+			}
+			#big img{
+				width: 800px;
+				height: 480px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+		<script>
+			window.onload = function (){
+				let oSmall = document.getElementById("small");
+				let oBig = document.getElementById("big");
+				let oMark = document.getElementById("mark");
+				let oBigImg = oBig.getElementsByTagName("img")[0];
+
+				oSmall.onmouseover = function () {
+					oMark.style.display = "block";
+					oBig.style.display = "block";
+				}
+				oSmall.onmouseout = function () {
+					oMark.style.display = "none";
+					oBig.style.display = "none";
+				}
+				oSmall.onmousemove = function (ev) {
+					let e = ev || window.event;
+					let l = e.clientX - oSmall.offsetLeft - 50;
+					let t = e.clientY - oSmall.offsetTop - 50;
+					if (l <= 0){
+						l = 0;
+					}
+					if (l >= 300){
+						l = 300;
+					}
+					if (t <= 0){
+						t = 0;
+					}
+					if (t >= 130){
+						t = 130;
+					}
+					oMark.style.left = l + "px";
+					oMark.style.top = t + "px";
+
+					/*
+						右边图片的移动方式，左边遮罩层如何移动，右边图片反方向移动倍数距离
+					 */
+					oBigImg.style.left = l * (-2) + "px";
+					oBigImg.style.top = t * (-2) + "px";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="small">
+			<img src = "../img/3.jpg" alt = "">
+			<div id="mark"></div>
+		</div>
+		<div id="big">
+			<img src = "../img/3.jpg" alt = "">
+		</div>
+	</body>
+</html>

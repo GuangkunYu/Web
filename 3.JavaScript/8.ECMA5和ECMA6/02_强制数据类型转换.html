@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>强制数据类型转换</title>
+		<script>
+			/*
+
+			 */
+
+			function show(x, y){
+				alert(this);
+				alert(x + ", " + y);
+			}
+			// show(10, 20);
+
+			/*
+				call
+					格式：函数名.call();
+					参数：
+						第一个参数：传入该函数this指向的对象，传入什么强制指向什么
+						第二个参数开始：将原函数的参数往后顺延一位
+
+			 */
+			// show.call("call", 10, 20);
+
+			/*
+				apply
+					格式：函数名.apply()
+					参数：
+						第一个参数：传入该函数this指向的对象，传入什么强制指向什么
+						第二个参数：数组    数组：放入我们原有所有的参数
+
+			 */
+			// show.apply("apply", [10, 20]);
+
+			/*
+				bind    预设this指向
+			 */
+			let res = show.bind("bind");
+			// res(10, 20);
+			// show.bind("bind")(10, 20);
+
+			function show1(){
+				alert(this);
+			}
+
+			window.onload = function () {
+				let oBtn = document.getElementById("btn");
+
+				/*oBtn.onclick = function () {
+					show1.call("call");
+				}*/
+
+				/*oBtn.onclick = function () {
+					show1.apply("apply");
+				}*/
+
+				// oBtn.onclick = show1.bind("bind");
+			}
+
+
+			/*
+				apply方法使用的小技巧
+			 */
+
+			let arr = [10, 20, 30, 40, 50];
+			alert(Math.min.apply(null, arr));
+			alert(Math.max.apply(null, arr));
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+	</body>
+</html>

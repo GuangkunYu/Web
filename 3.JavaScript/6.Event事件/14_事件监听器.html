@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>事件监听器</title>
+		<script>
+			/*
+				1、传统事件绑定
+					重复添加，会覆盖
+					不能精确的删除事件上的某一个函数
+
+				2、事件监听器
+					addEventListener()      attachEvent("on" + evenType, funcName) IE兼容
+						格式：node.addEventListener("click", 函数, bool)
+						参数：
+							第一个参数   事件类型
+							第二个参数   绑定函数
+							第三个参数   布尔值     true    事件捕获
+												 false   事件冒泡    默认
+					removeEventListener()       detachEvent("on" + evenType, funcName)   IE兼容
+						格式：node.removeEventListener("click", 函数)
+						参数：
+							第一个参数   事件类型
+							第二个参数   删除函数名字
+			 */
+
+			window.onload = function () {
+				let oBtn = document.getElementById("btn1");
+				// 传统方式
+				/*oBtn.onclick = function () {
+					alert("点击1");
+				}
+				oBtn.onclick = function () {
+					alert("点击2");
+				}*/
+
+				// 事件监听
+				// oBtn.addEventListener("click", function (){
+				// 	alert("点击1");
+				// }, false);
+				// oBtn.addEventListener("click", function (){
+				// 	alert("点击2");
+				// }, false);
+
+				let oBtns = document.getElementsByTagName("button");
+
+				oBtns[2].addEventListener("click", function (){
+					alert("原有的函数");
+				}, false);
+
+				oBtns[1].onclick = function (){
+					oBtns[2].addEventListener("click", show, false)
+				};
+
+				oBtns[3].onclick = function (){
+					oBtns[2].removeEventListener("click", show);
+				};
+			}
+
+			function show(){
+				alert("hello world!");
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn1">按钮</button>
+		<button>添加函数</button>
+		<button>按钮2</button>
+		<button>删除函数</button>
+	</body>
+</html>

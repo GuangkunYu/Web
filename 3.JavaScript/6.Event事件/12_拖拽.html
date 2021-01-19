@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+    <script>
+        /*
+            拖拽三剑客：
+                mousedown
+                    记录鼠标按下位置和被拖拽物体相对距离
+                mousemove
+                    一直保持相对距离
+                mouseup
+                    取消拖拽
+
+         */
+
+        window.onload = function () {
+            let div = document.getElementById("div1");
+            div.onmousedown = function (ev) {
+                let e = ev || window.event;
+                let offsetX = e.clientX - div.offsetLeft;
+                let offsetY = e.clientY - div.offsetTop;
+
+                document.onmousemove = function (ev) {
+                    let e = ev || window.event;
+                    let l = e.clientX - offsetX;
+                    let t = e.clientY - offsetY;
+
+                    // 限制左右出界
+                    if (l <= 0){
+                        l = 0;
+                    }
+                    let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+                    if (l >= windowWidth - div.offsetWidth){
+                        l = windowWidth - div.offsetWidth;
+                    }
+                    // 限制上下出界
+                    if (t <= 0){
+                        t = 0;
+                    }
+                    let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+                    if (t >= windowHeight - div.offsetHeight){
+                        t = windowHeight - div.offsetHeight;
+                    }
+
+                    div.style.left = l + "px";
+                    div.style.top = t + "px";
+                }
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
