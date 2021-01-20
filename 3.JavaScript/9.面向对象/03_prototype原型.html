@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>Title</title>
+		<script>
+			/*
+				prototype   原型对象
+				概念：每一个函数上，都有一个原型对象prototype
+
+				用在构造函数上，可以给构造函数的原型prototype，添加方法
+					1、如果将方法添加到构造函数的原型prototype对象上
+					2、构造函数构造出来的对象共享原型上的所有方法
+			*/
+
+			let arr1 = [10, 20, 30, 40, 50];
+			let arr2 = [1, 2, 3, 4, 5];
+
+			Array.prototype.sum = function () {
+				let res = 0;
+				for (let i = 0; i < this.length; i++){
+					res += this[i];
+				}
+				return res;
+			}
+
+			alert(arr1.sum());
+			alert(arr2.sum());
+			alert(arr1.sum === arr2.sum);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

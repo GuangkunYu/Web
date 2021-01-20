@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>合并对象</title>
+		<script>
+			/*
+				Object.assign   合并对象
+				【注】将所有传入的对象合并到第一个对象中
+
+				浅拷贝：只拷贝地址
+				深拷贝：将复合数据类型重新生成一份
+			 */
+
+			let obj1 = {a: 10};
+			let obj2 = {b: 20, c: 30};
+			let obj3 = {d: 40, f: ["hello", "world", true]};
+
+			Object.assign(obj1, obj2, obj3);
+			console.log(obj1);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

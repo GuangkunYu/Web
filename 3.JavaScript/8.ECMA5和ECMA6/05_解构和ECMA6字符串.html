@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>解构和ECMA6字符串</title>
+		<script>
+			/*
+				中括号解构
+				大括号解构
+			 */
+
+			let [x, y, z] = [10, 20, 30];
+			// alert(x + ", " + y + ", " + z);
+
+			let {name, age, sex} = {
+				age: 19,
+				name: "钢铁侠",
+				sex: "男"
+			}
+			// alert(name + ", " + age + ", " + sex );
+
+			/*
+				使用解构的好处：
+					1、交换两个数的值
+					2、函数可以返回多个值
+					3、函数定义参数，和传入参数的顺序改变
+						【注】参数可以带默认值
+					4、快速取出数组中的某一个元素
+			 */
+
+			let [a, b] = [10, 20];
+			[a, b] = [b, a];
+			// alert(a + ", " + b);
+
+			function show(){
+				return ['结果1', '结果2', '结果3'];
+			}
+
+			function show1({name, age, sex}){
+				alert("我叫" + name + "今年" + age + "是一位" + sex + "性");
+			}
+			// show1({
+			// 	age: 19,
+			// 	sex: "女",
+			// 	name: "钢铁侠"
+			// });
+
+			let arr = [10, 20, 30, 40, 50];
+			let {0:first, 4:last} = arr;
+			// alert(first);
+			// alert(last);
+
+
+
+			/*
+				传统字符串：所有单引号、双引号括起来的都叫做字符串
+				ECMA6字符串：反引号 ``
+
+					1、ECMA6字符串，想怎么写就怎么写，换行，代码缩进，都能在字符串中体现出来
+					2、${变量/表达式/函数调用}
+			 */
+			let str = "hello world";
+			let str1 = `hello
+			world`;
+			// alert(str);
+			// alert(str1);
+
+			function show2({name, age, sex}){
+				alert(`我叫${name}, 今年${age}, 是一位${sex}性`);
+			}
+			show2({
+				age: 19,
+				sex: "女",
+				name: "钢铁侠"
+			});
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

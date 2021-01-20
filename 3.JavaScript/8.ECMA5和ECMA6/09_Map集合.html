@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>Map集合</title>
+		<script>
+			/*
+				map映射
+			 */
+
+			let map = new Map();
+			map.set("张三", "大雨的");
+			map.set("李四", "种地的");
+			map.set("王五", "挖煤的");
+			map.set("李四", "打猎的");
+
+			// console.log(map);
+
+			/*
+				取值
+			 */
+
+			// console.log(map.get("王五"));
+
+			/*
+				map遍历  for...of
+			 */
+
+			for (let [key, val] of map){
+				console.log(key, val);
+			}
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

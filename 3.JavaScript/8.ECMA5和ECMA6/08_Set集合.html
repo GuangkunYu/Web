@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>集合</title>
+		<script>
+			/*
+				集合：
+					1、不重复
+					2、无序
+
+				Set
+				Map
+			 */
+
+			let s = new Set();
+			// 添加元素
+			s.add(100);
+			s.add(100);
+			s.add("hello");
+			s.add("hello");
+			s.add(true);
+			s.add(new String("world"));
+			s.add(new String("world"));
+
+			// console.log(s);
+
+			/*
+				集合遍历
+					for...of    遍历
+			 */
+
+			/*for (let value of s.keys()){
+				console.log(value)
+			}*/
+
+			/*for (let value of s.values()){
+				console.log(value)
+			}*/
+
+			// for (let value of s.entries()){
+			// 	console.log(value)
+			// }
+
+			// 数组变集合
+			let arr = [10, 20, 30, 40, 50, 40, 30, 20, 10];
+			let set = new Set(arr);
+			// console.log(set);
+
+			// 集合变数组    将数据结构展开成数组
+			let arr1 = [...set];
+			// console.log(arr1);
+
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>新增数组方法</title>
+		<script>
+			/*
+				Array.from()    将伪数组转成真数组
+			 */
+
+			/*window.onload = function () {
+				let oLi = document.getElementsByTagName("li");
+				oLi = Array.from(oLi);
+				oLi.push("hello");
+				alert(oLi);
+			}*/
+
+
+
+			/*
+				find()
+					功能：在数组中查找符合条件的元素，只要找到第一个符合条件的元素，就终止遍历
+					返回值：找到的元素
+
+				findIndex()
+					返回值：找到的元素下标
+			 */
+
+			let arr = [10, 20, 30, 40, 50];
+			let res = arr.find(function (item, index, arr){
+				return item > 20;
+			})
+			// alert(res);
+
+			// alert(arr.find(item => item > 20));
+			// alert(arr.findIndex(item => item > 20));
+
+			/*
+				arr.copyWithin()
+					第一个参数：从哪个下标开始
+					第二个参数和第三个参数：范围[start, end)
+			 */
+
+			let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+			arr1.copyWithin(2, 4, 9);
+			alert(arr1);    // 1,2,5,6,7,8,9,8,9,10
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>
