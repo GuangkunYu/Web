@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>分享到菜单案例</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 100px;
+				height: 200px;
+				background: gray;
+				position: relative;
+				left: -100px;
+				top: 400px;
+			}
+			#div1 span{
+				display: inline-block;
+				width: 20px;
+				height: 70px;
+				background: orange;
+				line-height: 23px;
+				text-align: center;
+				position: absolute;
+				left: 100px;
+				top: 65px;
+			}
+		</style>
+		<script>
+			window.onload = function () {
+				let oDiv = document.getElementById("div1");
+
+				oDiv.onmouseover = function () {
+					moveIn(oDiv, 5, 0);
+				};
+
+				oDiv.onmouseout = function () {
+					// moveOut(oDiv);
+					moveIn(oDiv, -5, -100);
+				};
+			}
+
+			let timer = null;
+			function moveIn(oDiv, speed, target){
+				// let speed = 5;
+				clearInterval(timer);
+				timer = setInterval(function () {
+					if (oDiv.offsetLeft === target){
+						clearInterval(timer);
+					}else {
+						oDiv.style.left = oDiv.offsetLeft + speed +"px";
+					}
+				}, 30);
+			}
+			/*function moveOut(oDiv){
+				let speed = -5;
+				clearInterval(timer);
+				timer = setInterval(function () {
+					if (oDiv.offsetLeft === -100){
+						clearInterval(timer);
+					}else {
+						oDiv.style.left = oDiv.offsetLeft + speed +"px";
+					}
+				}, 30);
+			}*/
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<span>分享到</span >
+		</div>
+	</body>
+</html>

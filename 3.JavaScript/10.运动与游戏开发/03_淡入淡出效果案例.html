@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>淡入淡出效果案例</title>
+		<style>
+			#img1{
+				opacity: 0.3;
+				filter: alpha(opacity=30);
+			}
+		</style>
+		<script>
+			window.onload = function () {
+				let oImg = document.getElementById("img1");
+
+				oImg.onmouseover = function () {
+					mousePlay(oImg, 100);
+				}
+
+				oImg.onmouseout = function () {
+					mousePlay(oImg, 30);
+				}
+			}
+
+			let alpha = 30;
+			let timer = null;
+			function mousePlay(oImg, target){
+				clearInterval(timer);
+				let speed = 2;
+				speed = target > alpha ? Math.abs(speed) : - Math.abs(speed);
+				timer = setInterval(function () {
+					if (target === alpha){
+						clearInterval(timer);
+					}else{
+						alpha += speed;
+						oImg.style.opacity = alpha / 100;
+						oImg.style.filter = `alpha(opacity=${alpha})`;
+					}
+				}, 30);
+			}
+		</script>
+	</head>
+	<body>
+		<img id="img1" src = "../img/3.jpg" alt = "">
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>缓冲菜单</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				right: 0;
+			}
+		</style>
+		<script>
+			/*
+				1、匀速运动
+					每次启动定时器，关闭上一次定时器
+					if...else将运动和停止分开
+				2、分享到菜单     淡入淡出效果（alpha）
+					startMove(target);
+				3、缓冲运动
+					var speed = (target - iCur) / 8;    （经过长期试验，8是动画最合理的）
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+			 */
+
+			window.onload = function () {
+				let oDiv = document.getElementById("div1");
+				let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+				let iH = parseInt( scrollTop + (windowHeight - oDiv.offsetHeight) / 2);
+
+				startMove(oDiv, iH);
+
+				window.onscroll = function () {
+					let oDiv = document.getElementById("div1");
+					let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+					let iH = parseInt( scrollTop + (windowHeight - oDiv.offsetHeight) / 2);
+
+					startMove(oDiv, iH);
+				}
+
+				window.onresize = function () {
+					let oDiv = document.getElementById("div1");
+					let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+					let iH = parseInt( scrollTop + (windowHeight - oDiv.offsetHeight) / 2);
+
+					startMove(oDiv, iH);
+				}
+			}
+
+
+
+			let timer = null;
+			function startMove(oDiv, iTarget){
+				clearInterval(timer);
+				timer = setInterval(function () {
+					let speed = (iTarget - oDiv.offsetTop) / 8;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+					if (oDiv.offsetTop === iTarget){
+						clearInterval(timer);
+					} else {
+						oDiv.style.top = oDiv.offsetTop + speed + "px";
+					}
+				}, 30);
+			}
+		</script>
+	</head>
+	<body style="height: 3000px;">
+		<div id="div1"></div>
+	</body>
+</html>

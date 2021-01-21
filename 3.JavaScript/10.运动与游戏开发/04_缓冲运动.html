@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>缓冲运动</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+				top: 200px;
+			}
+		</style>
+		<script>
+			/*
+				刹车
+
+				不是屋里规律的特点：速度和距离成正相关
+
+				speed = 距离
+				speed = target - iCur
+			 */
+
+			window.onload = function () {
+				let oBtn = document.getElementById("btn");
+				let oDiv = document.getElementById("div1");
+
+				oBtn.onclick = function () {
+					startMove(oDiv, 500);
+				}
+			}
+
+			let timer = null;
+			function startMove(oDiv, target){
+				clearInterval(timer);
+				timer = setInterval(function () {
+					let speed = (target - oDiv.offsetLeft) / 8;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+					if (oDiv.offsetLeft === target){
+						clearInterval(timer);
+					}else {
+						oDiv.style.left = oDiv.offsetLeft + speed + "px";
+					}
+				}, 30);
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">开始运动</button>
+		<div id="div1"></div>
+	</body>
+</html>

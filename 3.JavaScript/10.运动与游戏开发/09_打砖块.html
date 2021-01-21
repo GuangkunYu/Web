@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>打砖块</title>
+		<style>
+			#div1{
+				width: 600px;
+				height: 600px;
+				border: 1px solid black;
+				position: relative;
+				margin: 100px auto;
+			}
+			#ball{
+				width: 20px;
+				height: 20px;
+				background: greenyellow;
+				border-radius: 50%;
+				position: absolute;
+				bottom: 10px;
+				left: 290px;
+			}
+			#bat{
+				width: 100px;
+				height: 10px;
+				background: blue;
+				position: absolute;
+				bottom: 0;
+				left: 250px;
+			}
+			#brick div{
+				width: 98px;
+				height: 18px;
+				border: 1px solid black;
+				float: left;
+			}
+		</style>
+		<script>
+			window.onload = function () {
+				let oDiv = document.getElementById("div1");
+				let oBall = document.getElementById("ball");
+				let oBat = document.getElementById("bat");
+				let oBrick = document.getElementById("brick");
+				let aBricks = oBrick.getElementsByTagName("div");
+
+				dragX(oBat);
+				createBrick(60);
+
+				// 让小球可以水平方向移动，随机一个水平方向的速度
+				let speedX = parseInt(Math.random() * 4) + 3;
+				// 让小球可以竖直方向移动，随机一个竖直方向的速度
+				let speedY = -(parseInt(Math.random() * 3) + 5);
+
+				timer = setInterval(function () {
+					oBall.style.left = oBall.offsetLeft + speedX + "px";
+					oBall.style.top = oBall.offsetTop + speedY + "px";
+
+					if (oBall.offsetLeft >= 580 || oBall.offsetLeft <= 0){
+						speedX *= -1;
+					}
+					if (oBall.offsetTop <= 0){
+						speedY *= -1;
+					}
+					if(oBall.offsetTop >= 580){
+						alert("GAME OVER");
+						clearInterval(timer);
+						window.location.reload();
+					}
+
+					/*
+						碰撞检测
+					 */
+					// 小球和滑块
+					if (knock(oBall, oBat)){
+						speedY *= -1;
+					}
+					// 小球和砖块碰撞
+					for (let i = 0; i < aBricks.length; i++){
+						if (knock(aBricks[i], oBall)){
+							speedY *= -1;
+							oBrick.removeChild(aBricks[i]);
+						}
+					}
+				}, 30);
+			}
+
+			// 拖拽滑块函数
+			function dragX(node){
+				node.onmousedown = function (ev) {
+					let e = ev || window.event;
+					let offsetX = e.clientX - node.offsetLeft;
+
+					document.onmousemove = function (ev) {
+						let e = ev || window.event;
+						let l = e.clientX - offsetX;
+
+						if (l <= 0){
+							l = 0;
+						}
+						if (l >= 500){
+							l = 500;
+						}
+						node.style.left = l + "px";
+					}
+				}
+				document.onmouseup = function () {
+					document.onmousemove = null;
+				}
+			}
+
+			// 创建砖块
+			/*
+				文档流的转换
+				相对定位转绝对定位
+			*/
+			function createBrick(n){
+				let oBrick = document.getElementById("brick");
+				for (let i = 0; i < n; i++){
+					let node = document.createElement("div");
+					node.style.backgroundColor = randomColor();
+					oBrick.appendChild(node);
+				}
+				let aBricks = oBrick.getElementsByTagName("div");
+				for (let i = 0; i < aBricks.length; i++){
+					aBricks[i].style.left = aBricks[i].offsetLeft + "px";
+					aBricks[i].style.top = aBricks[i].offsetTop + "px";
+				}
+				for (let i = 0; i < aBricks.length; i++){
+					aBricks[i].style.position = "absolute";
+				}
+			}
+
+			function randomColor(){
+				return "rgba(" + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + "," + 1 + ")";
+			}
+
+			// 碰撞
+			/*
+				思路：找到如何是绝对碰不上的
+			 */
+
+			function knock(node1, node2){
+				let l1 = node1.offsetLeft;
+				let r1 = node1.offsetLeft + node1.offsetWidth;
+				let t1 = node1.offsetTop;
+				let b1 = node1.offsetTop + node1.offsetHeight;
+
+				let l2 = node2.offsetLeft;
+				let r2 = node2.offsetLeft + node2.offsetWidth;
+				let t2 = node2.offsetTop;
+				let b2 = node2.offsetTop + node2.offsetHeight;
+
+				return !(l2 > r1 || r2 < l1 || t2 > b1 || b2 < t1);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="ball"></div>
+			<div id="bat"></div>
+			<div id="brick">
+
+			</div>
+		</div>
+	</body>
+</html>

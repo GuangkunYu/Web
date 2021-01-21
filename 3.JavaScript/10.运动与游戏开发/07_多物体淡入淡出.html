@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>多物体运动</title>
+		<style>
+			div{
+				width: 100px;
+				height: 50px;
+				background-color: red;
+				margin: 100px;
+				opacity: 0.3;
+				filter: alpha(opacity = 30);
+			}
+		</style>
+		<script>
+			window.onload = function () {
+				let oDivs = document.getElementsByTagName("div");
+
+				for (let i = 0; i < oDivs.length; i++){
+					oDivs[i].alpha = 30;
+					oDivs[i].onmouseover = function () {
+						startMove(this, 100);
+					}
+					oDivs[i].onmouseout = function () {
+						startMove(this, 30);
+					}
+				}
+			}
+
+			/*
+				让谁进行运动不确定，node参数
+				多物体运动，实际上只有一个定时器，
+				让每一个运动的物体都有一个定时器
+			 */
+			// let alpha = 30;
+			/*
+				多物体运动
+					1、定时器不能共用
+					2、任何数据都不能共用
+			 */
+			function startMove(node, iTarget){
+				clearInterval(node.timer);
+				node.timer = setInterval(function () {
+					let speed = (iTarget - node.alpha) / 30;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+					if (node.alpha === iTarget){
+						clearInterval(node.timer);
+					} else {
+						node.alpha += speed;
+
+						node.style.opacity = node.alpha / 100;
+						node.style.filter = `alpha(opacity = ${node.alpha})`;
+					}
+				}, 30);
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

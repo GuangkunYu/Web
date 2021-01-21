@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>认识运动</title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-top: 100px;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+		<script>
+			/*
+				动画  图像
+				原理：能够识别的最小的时间间隔是18帧
+				动画：只需要让动画的切换时间间隔大于18帧，一般情况下电影院里面放映的电影24帧
+			 */
+
+			/*
+				简单运动：让一个div从左往右开始运动
+
+				1、停不下来
+				2、当速度取某些值的时候停不下来的问题
+				3、到达目的的值后，点击还会继续往前运动
+					if...else   将运动和停止分开
+				4、重复点击按钮，速度加快
+					保证只有一个定时器
+					每次启动定时器之前，先将上一次定时器关闭
+			 */
+
+			/*
+				运动框架：
+					1、每次启动定时器之前，先将上一次定时器关闭
+					2、if...else 将运动和停止分开
+			 */
+
+			window.onload = function () {
+				let oDiv = document.getElementById("div1");
+				let oBtn = document.getElementById("btn");
+
+				let speed = 5;
+				let timer = null;
+				oBtn.onclick = function () {
+					clearInterval(timer);
+					timer = setInterval(function (){
+						if (oDiv.offsetLeft >= 500){
+							clearInterval(timer);
+						}else {
+							oDiv.style.left = oDiv.offsetLeft + speed + "px";
+						}
+					}, 30);
+
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">开始运动</button>
+		<div id="div1"></div>
+
+	</body>
+</html>
