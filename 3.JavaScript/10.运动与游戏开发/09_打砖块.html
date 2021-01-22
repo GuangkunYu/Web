@@ -44,12 +44,12 @@
 				let aBricks = oBrick.getElementsByTagName("div");
 
 				dragX(oBat);
-				createBrick(60);
+				createBrick(20);
 
 				// 让小球可以水平方向移动，随机一个水平方向的速度
-				let speedX = parseInt(Math.random() * 4) + 3;
+				let speedX = parseInt(Math.random() * 10) + 3;
 				// 让小球可以竖直方向移动，随机一个竖直方向的速度
-				let speedY = -(parseInt(Math.random() * 3) + 5);
+				let speedY = -(parseInt(Math.random() * 10) + 5);
 
 				timer = setInterval(function () {
 					oBall.style.left = oBall.offsetLeft + speedX + "px";
