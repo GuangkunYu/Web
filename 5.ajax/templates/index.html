@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>ajax</title>
+        <script>
+            /*
+                Ajax：异步的JavaScript和XML（数据传输格式）
+                      异步的JavaScript和数据传输
+
+                【注】Ajax是前后端数据交互的搬运工，都可以异步执行
+
+                XML数据传输格式：
+                    优点：
+                        1、种类丰富
+                        2、传输量非常大
+                    缺点：
+                        1、解析麻烦
+                        2、不太适合轻量级数据
+
+                json数据传输格式：（字符串）移动端应用
+                    优点：
+                        1、轻量级数据
+                        2、解析比较轻松
+                    缺点：
+                        1、数据种类比较少
+                        2、传输数据量比较小
+
+                JSON.parse()
+                JSON.stringify()
+             */
+
+            /*
+                【注】任何一个程序都是由很多歌小程序组成的
+                【注】用来秒数一个程序运行状态
+
+                同步：阻塞，当前程序是否运行，必须等前一个程序运行完毕以后才能运行
+                异步：非阻塞，当前程序运行，和前面的程序运行没有任何关系
+            */
+
+            /*
+                Ajax语法：
+                    
+             */
+            
+            window.onload = function () {
+                let oBtn = document.getElementById("btn");
+                oBtn.onclick = function () {
+                    // 1.创建Ajax对象
+                    let xhr = new XMLHttpRequest();
+                    // 2.调用open()
+                    xhr.open("get", "/", true);
+                    // 3.调用send()
+                    xhr.send();
+                    // 4.等待数据响应
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            // alert(xhr.responseText);
+                            console.log(xhr.responseText);
+                        }
+                    }
+                };
+
+                let oBtn1 = document.getElementById("getBtn");
+                let oInputs = document.getElementsByTagName("input");
+
+                oBtn1.onclick = function () {
+                  let xhr  = new XMLHttpRequest();
+                  let str = "?username=" + oInputs[0].value + "&age=" + oInputs[1].value + "&sex=" + oInputs[2].value;
+                  xhr.open("get", "/getapi"+str, true);
+                  xhr.send();
+                  xhr.onreadystatechange = function () {
+                      if (xhr.readyState === 4){
+                          alert(xhr.responseText["username"]);
+                      }
+                  }
+                };
+
+                let oBtn2 = document.getElementById("postBtn");
+                oBtn2.onclick = function () {
+                    let xhr  = new XMLHttpRequest();
+                    xhr.open("post", "/postapi", true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                    data = "username=" + oInputs[0].value + "&age=" + oInputs[1].value + "&sex=" + oInputs[2].value;
+                    xhr.send(data);
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4){
+                            xhr.setContentType("application/json; charset=utf-8");
+                            alert(xhr.responseText);
+                        }
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1>hello world!</h1>
+        <button id="btn">下载数据</button>
+
+        <form action="/" method="post">
+            <input type="text" name="username" placeholder="用户名"><br>
+            <input type="text" name="age" placeholder="年龄"><br>
+            <input type="text" name="sex" placeholder="性别"><br>
+            <button id="getBtn">get请求</button>
+            <button id="postBtn">post请求</button>
+        </form>
+
+
+    </body>
+</html>
