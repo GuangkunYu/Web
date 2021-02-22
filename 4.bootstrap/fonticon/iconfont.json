@@ -1,0 +1,23 @@
+{
+  "id": "2357723",
+  "name": "test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "18446893",
+      "name": "顶部",
+      "font_class": "dingbu",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "18446949",
+      "name": "底部",
+      "font_class": "dibu",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    }
+  ]
+}

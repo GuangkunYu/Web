@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="box">div1</div>
+		<div>div2 <strong class="box"></strong></div>
+		
+		<script type="text/javascript">
+			/* 
+				filter 过滤 对已经获取到的网页元素进行过滤
+				not filter的反义词
+				has 拥有，直接判定子节点是否有符合条件的元素
+			*/
+		    $(function(){
+				$('div').filter('.box').css('background', 'yellow');
+				$('div').not('.box').css('background', 'red');
+				$('div').has('.box').css('background', 'orange');
+			})
+		</script>
+	</body>
+</html>

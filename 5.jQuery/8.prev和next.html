@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h2>h2</h2>
+		<p>p</p>
+		<h3>h3</h3>
+		<em>em</em>
+		<div>div</div>
+		
+		<script type="text/javascript">
+			/* 
+				prev 查找当前兄弟节点中的上一个节点
+				next 查找当前兄弟节点中的下一个节点
+			*/
+		    $(function(){
+				$('h3').prev().css('background', 'red')
+				$('h3').next().css('background', 'yellow')
+			})
+		</script>
+	</body>
+</html>

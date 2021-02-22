@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>天气查询</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2>天气查询
+						<span id="info"></span>
+					</h2>
+				</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<labe for="city">城市名字：</labe>
+						<input id="city" type="text" class="form-control"></input>
+					</div>
+					<button type="button" id="search" class="btn btn-primary form-control">查询该城市天气</button>
+				</div>
+				<br>
+				<div class="panel-footer">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>日期</th>
+								<th>天气</th>
+								<th>风向</th>
+								<th>温度</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			function download(data){
+				console.log(data)
+			}
+		</script>
+		<script type="text/javascript">
+			window.onload = function(){
+				let oSearch = document.getElementById('search');
+				let oCity = document.getElementById('city');
+				oSearch.onclick = function(){
+					if(!oCity.value){
+						alert("请输入城市名字")
+					}else{
+						let oScript = document.createElement('script');
+						oScript.src = `http://cdn.asilu.com/#weather?city=${oCity.value}&callback=download`;
+						document.body.appendChild(oScript);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

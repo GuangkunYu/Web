@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="msg" @input="changeMsg()"/>
+			<ol>
+				<li v-for="data in datalist">{{ data }}</li>
+			</ol>
+		</div>
+		
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					msg: '',
+					datalist: ['aaa', 'bbb', 'ccc', 'eee', 'abc', "abe", 'bce'],
+					list: ['aaa', 'bbb', 'ccc', 'eee', 'abc', "abe", 'bce']
+				},
+				methods:{
+					changeMsg: function(){
+						this.datalist = this.list.filter(item => item.indexOf(this.msg)>-1)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

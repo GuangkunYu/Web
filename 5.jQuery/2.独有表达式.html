@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li>1111</li>
+			<li class="box">1111</li>
+			<li>1111</li>
+			<li class="box">1111</li>
+			<li>1111</li>
+		</ul>
+		<span title="name">span</span>
+		<div title="name">div</div>
+		<p>p</p>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				// $('li:eq(2)').css('background', 'red');
+				// $('li').eq(2).css('background', 'red');
+				
+				// $('li.box').css('background', 'blue');
+				$('li').filter('.box').css('background', 'yellow');
+			}
+		</script>
+	</body>
+</html>

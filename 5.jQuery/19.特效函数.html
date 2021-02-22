@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="text" value="aaa" />
+		<input type="text" value="bbb" />
+		<input type="text" value="ccc" />
+		
+		<script type="text/javascript">
+			/* 
+				val()	获取、设置表单元素的值 
+				size()	输出，获取网页元素的个数
+			*/
+		   
+			$(function(){
+				console.log($('input').val());	// 取值只能取第一个符合条件的元素的值
+				$('input').val('hello world');	// 赋值批量操作，会对所有获取到的元素进行赋值
+				// console.log($('input').size());
+				console.log($('input').length)
+			})
+		</script>
+	</body>
+</html>

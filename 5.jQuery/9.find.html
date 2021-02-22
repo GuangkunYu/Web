@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li class="box"></li>
+			<li name="hello"></li>
+			<li class="box"></li>
+		</ul>
+		<ol>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		
+		<script type="text/javascript">
+			/* 
+				find 查找子节点
+			*/
+		    $(function(){
+				$('ul').find('li').css('background', 'red');
+				$('ul').find('[class=box]').css('background', 'yellow');
+				$('ul').find('[name=hello]').css('background', 'blue');
+			})
+		</script>
+	</body>
+</html>

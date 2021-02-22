@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>SayHello</title>
+		<link rel = "stylesheet" href = "./css/bootstrap.min.css">
+		<link rel = "stylesheet" href = "./fonticon/iconfont.css">
+		<script src="./js/jquery.js"></script>
+		<style>
+			.iconfont {
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1 class="display-4 font-weight-bold text-center">Say Hello <small class="blockquote">to the world</small></h1>
+				<br>
+				<br>
+				<div class="row justify-content-center">
+					<div class="col-8">
+						<form>
+
+							<div class="form-group">
+								<label for="name">Username</label>
+								<input type="text" class="form-control" id="name" name="username">
+<!--								<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+							</div>
+							<div class="form-group">
+								<label for="message">Message</label>
+								<textarea class="form-control" id="message"></textarea>
+							</div>
+							<button id="btn" type="button" class="btn btn-primary">Submit</button>
+						</form>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="row justify-content-center">
+					<div class="col-8">
+						<div class="msg-t">
+							<span class="h3">3 messages</span>
+							<a href="#foot" title="前往底部" name="top"><span class="iconfont icondibu float-right"></span></a>
+						</div>
+						<br>
+						<div class="msg-c">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<div class="mb-0">
+										<span class="h6">Grey Li</span>&nbsp;&nbsp;
+										<small>#</small><small>3</small>
+										<small class="float-right">14 minutes ago</small>
+									</div>
+
+									<br>
+									<div>hello world</div>
+								</li>
+								<li class="list-group-item">A second item</li>
+								<li class="list-group-item">A third item</li>
+								<li class="list-group-item">A fourth item</li>
+							</ul>
+						</div>
+						<br>
+						<br>
+
+					</div>
+				</div>
+				<div class="row justify-content-center footer">
+					&copy; 2021 YGK / SayHello
+				</div>
+				<div class="row justify-content-center footer">
+					<a href="#top" title="前往消息顶部" name="foot"><span class="iconfont icondingbu"></span></a>
+				</div>
+			</div>
+		</div>
+		<script>
+			$('#btn').click(function (){
+				let name = $('#name').val();
+				let msg = $('#message').val();
+				let data = {
+					'name': name,
+					'msg': msg
+				}
+				$.ajax({
+					type: 'GET',
+					url: 'http://127.0.0.1:5000/',
+					data: data,
+					success: function (data){
+						console.log(data)
+					}
+				})
+			})
+
+		</script>
+	</body>
+</html>

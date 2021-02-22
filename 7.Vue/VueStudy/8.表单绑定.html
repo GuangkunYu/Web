@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="msg"/>
+			<!-- v-model.lazy失去焦点才同步数据 -->
+			<!-- v-model.number只同步数据 -->
+			<!-- v-model.trim去掉首位空格 -->
+			{{ msg }}
+			<br>
+			<textarea v-model="msg"></textarea>
+			<br>
+			<p>你喜欢的运动：</p>
+			<input type="checkbox" v-model="list" value="游泳">游泳
+			<input type="checkbox" v-model="list" value="长跑">长跑
+			<input type="checkbox" v-model="list" value="画饼">画饼
+			{{list}}
+			<br>
+			<p>最喜欢的语言：</p>
+			<input type="radio" v-model="radio" value="游泳">php
+			<input type="radio" v-model="radio" value="长跑">js
+			<input type="radio" v-model="radio" value="画饼">python
+			{{radio}}
+		</div>
+		
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					msg:'',
+					list: [],
+					radio:''
+				}
+			})
+		</script>
+	</body>
+</html>

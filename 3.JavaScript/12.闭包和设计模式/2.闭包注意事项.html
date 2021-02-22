@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button">按钮1</button>
+		<button type="button">按钮2</button>
+		<button type="button">按钮3</button>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				let oBtns = document.getElementsByTagName('button');
+				for(var i=0; i < oBtns.length; i++){
+					oBtns[i].onclick = function (index) {
+						return function(){
+							alert(index);
+						}
+					}(i);
+				}
+			}
+		</script>
+	</body>
+</html>

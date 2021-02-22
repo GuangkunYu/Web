@@ -1,0 +1,66 @@
+/* banner */
+.banner {
+	height: 662px;
+	
+}
+
+.banner a img {
+	width: 100%;
+	height: 100%;
+	margin-top: 78px;
+}
+
+/* caketype */
+.cake{
+	width: 100%;
+}
+.cake_type {
+	width: 100%;
+	height: 477px;
+}
+
+.cake_type div {
+	width: 33%;
+	height: 100%;
+	float: left;
+	text-align: center;
+}
+
+.cake_type .type1 {
+	background: #eee2c8;
+}
+
+.cake_type .type2 {
+	background: #ddc69d;
+}
+
+.cake_type .type3 {
+	background: #eee2c8;
+}
+
+.cake_type div a img {
+	width: 290px;
+	height: 191px;
+	margin-top: 77px;
+}
+
+.cake_type div a {
+	display: block;
+	font-size: 14px;
+}
+
+.cake_type div a:nth-child(1) {
+	margin-bottom: 60px;
+}
+
+.cake_type div a:nth-child(2) {
+	display: inline-block;
+	border-bottom: 1px solid #1d181c;
+	padding-bottom: 12px;
+	margin-bottom: 25px;
+}
+
+.cake_type div a:nth-child(2) span:first-child {
+	font-weight: bold;
+}
+

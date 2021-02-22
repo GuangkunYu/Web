@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<ol>
+				<!-- 创建一个todo-item组件的实例 -->
+				<todo-item v-bind:todo="item" v-for="item in groceyList" v-bind:key="item.id">
+					
+				</todo-item>
+			</ol>
+		</div>
+		
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 注册组件
+			Vue.component('todo-item', {
+				props:['todo'],
+				template: '<li>{{ todo.text }}</li>'
+			})
+			
+			const app = new Vue({
+				el:"#app",
+				data:{
+					groceyList:[
+						{id: 0, text: '蔬菜'},
+						{id: 1, text: '奶酪'},
+						{id: 2, text: '随便吃啥'}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

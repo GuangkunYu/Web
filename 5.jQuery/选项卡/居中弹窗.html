@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+				position: relative;
+				display: none;
+			}
+			#close{
+				position: absolute;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+			}
+		</style>
+		<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="height: 3000px;">
+		<button type="button" id="issue">发布</button>
+		<div id="div1">
+			<input type="text" placeholder="用户名"/>
+			<input type="password" placeholder="密码"/>
+			<div id="close">
+				X
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				// 计算居中的top和left值
+				let top = $(window).scrollTop() + ($(window).height() - $('#div1').outerHeight(true))/2;
+				let left = ($(window).width() - $('#div1').outerWidth(true))/2;
+				
+				$('#div1').css({
+					left: left,
+					top: top
+				});
+				
+				$(window).on('scroll resize', function(){
+					let top = $(window).scrollTop() + ($(window).height() - $('#div1').outerHeight(true))/2;
+					let left = ($(window).width() - $('#div1').outerWidth(true))/2;
+					
+					$('#div1').css({
+						left: left,
+						top: top
+					});
+				})
+				
+				
+				$('#issue').click(function(){
+					$('#div1').css('display', 'block')
+				});
+				$('#close').click(function(){
+					$('#div1').css('display', 'none')
+				})
+			})
+		</script>
+	</body>
+</html>

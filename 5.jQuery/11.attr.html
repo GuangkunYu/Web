@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1" title="hello" class="box"></div>
+		
+		<script type="text/javascript">
+			/* 
+				attr 设置和修改行间属性
+			*/
+		    $(function(){
+				console.log($('#div1').attr('id'));
+				console.log($('#div1').attr('title'));
+				
+				$('#div1').attr('class', 'box22');
+				console.log($('#div1').attr('class'));
+					
+				$('#div1').attr({
+					title: 'world',
+					class: 'xxx',
+					yyy: 'zzz'
+				})
+			})
+		</script>
+	</body>
+</html>

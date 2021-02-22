@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel = "stylesheet" href = "../css/bootstrap.min.css">
+		<title>栅格系统</title>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm bg-primary">1</div>
+				<div class="col-sm bg-danger">2</div>
+				<div class="col-sm bg-warning">3</div>
+			</div>
+		</div>
+		<br>
+<!--		等宽-->
+		<div class="container">
+			<div class="row">
+				<div class="col bg-warning">1</div>
+				<div class="col bg-success">2</div>
+			</div>
+			<div class="row">
+				<div class = "col bg-secondary">1</div>
+				<div class = "col bg-info">2</div>
+				<div class = "col bg-dark">3</div>
+			</div>
+		</div>
+		<br>
+<!--		等宽多行-->
+		<div class="container">
+			<div class="row">
+				<div class = "col bg-warning">1</div>
+				<div class = "col bg-info">2</div>
+				<div class="w-100"></div>
+				<div class = "col bg-success">3</div>
+				<div class = "col bg-danger">4</div>
+			</div>
+		</div>
+		<br>
+<!--		设置一列宽度-->
+		<div class="container">
+			<div class="row">
+				<div class = "col bg-warning">1</div>
+				<div class = "col-6 bg-info">2</div>
+				<div class = "col bg-danger">3</div>
+			</div>
+			<div class="row">
+				<div class="col bg-danger">1</div>
+				<div class="col-5 bg-warning">2</div>
+				<div class="col bg-info">3</div>
+			</div>
+		</div>
+		<br>
+<!--		可变宽度内容-->
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class = "col col-lg-2 bg-warning">1</div>
+				<div class = "col col-md-auto bg-info">2</div>
+				<div class = "col col-lg-2 bg-danger">3</div>
+			</div>
+			<div class="row">
+				<div class="col bg-danger">1</div>
+				<div class="col col-md-auto bg-warning">2</div>
+				<div class="col col-lg-2 bg-info">3</div>
+			</div>
+		</div>
+		<br>
+
+	</body>
+</html>

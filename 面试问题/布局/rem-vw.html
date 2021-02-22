@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			html{
+				font-size: 100px;
+			}
+			div{
+				width: 100%;
+				height: 320px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			640的设计稿，需要在320的设备上去显示，因为苹果手机4的dpr:2
+			vw: 视窗宽度的百分比1vw=设备宽度的百分之一
+				如果640的设计稿需要在320的设备上显示，那么1vw=320的百分之一，即1vw=3.2px
+				html的font-size设置为100px（目的就是为了好计算）
+			rem:根据HTML里的font-size来计算的
+			em:根据父元素的font-size计算
+		 -->
+		 <div></div>
+	</body>
+</html>

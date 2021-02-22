@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				border: 1px solid black;
+				padding: 8px;
+				margin: 20px;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		<script type="text/javascript">
+			/* 
+				width系列三个方法：
+					width()
+					innerWidth()
+					outerWidth()
+				height系列三个方法
+					height()
+					innerHeight()
+					outerHeight()
+			*/
+		   $(function(){
+			   // console.log($('#div1').css('width'))	//100px
+			   console.log($('#div1').width())	//100
+			   console.log($('#div1').innerWidth())  //116 width+padding
+			   console.log($('#div1').outerWidth())  //118  width+padding+border
+			   console.log($('#div1').outerWidth(true))  //158  width+padding+border+margin
+		   })
+		</script>
+	</body>
+</html>

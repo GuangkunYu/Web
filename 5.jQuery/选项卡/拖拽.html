@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+		<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+		<script type="text/javascript">
+			$(function(){
+				$('div').mousedown(function(ev){
+					let offsetX = ev.pageX - $(this).offset().left;
+					let offsetY = ev.pageY - $(this).offset().top;
+					
+					let _this = this;
+					$(document).mousemove(function(ev){
+						$(_this).css({
+							left: ev.pageX - offsetX,
+							top: ev.pageY - offsetY
+						})
+					})
+				});
+				
+				$(document).mouseup(function(){
+					$(document).off('mousemove')
+				})
+			})
+		</script>
+	</body>
+</html>

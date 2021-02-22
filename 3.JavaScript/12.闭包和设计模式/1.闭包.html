@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 
+				满足以下特点的叫做闭包：
+					1. 函数嵌套函数
+					2. 内部函数使用外部函数的形参和变量
+					3. 被引用的形参和变量就不会被垃圾回收机制回收
+			*/
+		    function aaa(num1){
+		    	let num2 = 10;
+		    	function bbb(){
+		    		alert(num1 + "," + num2);
+		    	}
+		    	return bbb;
+		    }
+		    
+		    let res = aaa(20);
+		    // res();
+			
+		    /* 
+				好处：
+					1. 希望一个变量常驻内存当中
+					2. 避免全局变量污染	避免声明全局变量
+					3. 可以声明私有成员
+			*/
+		    // 立即执行函数写法
+			let ccc = (function () {
+				let a = 2;
+				return function () {
+					a++;
+					alert(a);
+				}
+			})();
+			// ccc();
+			// ccc();
+			// ccc();
+			
+			// A同学
+			let modelA = (function () {
+				let count = 10;
+				function aaa() {
+					count += 2;
+					alert(count)
+				};
+				function bbb(){
+					count *= 10;
+					alert(count)
+				};
+				return {
+					funA: aaa,
+					funB: bbb,
+				}
+			})();
+			// B同学
+			let modelB = (function () {
+				let count = 10;
+				function aaa() {
+					count += 10;
+					alert(count)
+				};
+				function bbb(){
+					count *= 20;
+					alert(count)
+				};
+				return {
+					funA: aaa,
+					funB: bbb,
+				}
+			})();
+		    
+			// modelA.funA();
+			// modelA.funB();
+			
+			// modelB.funA();
+			// modelB.funB();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1">
+			<em>em</em>
+			div
+		</div>
+		<input type="text" value="hello world" />
+		
+		<script type="text/javascript">
+			$(function(){
+				console.log($('#div1').html())
+				$('#div1').html('<h1>我是新赋值的内容</h1>')
+				
+				console.log($('input').val())
+				$('input').val('world hello')
+			})
+		</script>
+	</body>
+</html>

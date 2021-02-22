@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#div1 button{
+				width: 100px;
+				height: 30px;
+				background-color: gray;
+				font-size: 16px;
+				color: white;
+				cursor: pointer;
+			}
+			#div1 div{
+				width: 350px;
+				height: 350px;
+				background-color: gray;
+				border: 1px solid black;
+				display: none;
+			}
+			#div1 .active{
+				background-color: orange;
+				color: blue;
+			}
+		</style>
+		<script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="div1">
+			<button type="button" class="active">HTML</button>
+			<button type="button">JavaScript</button>
+			<button type="button">jQuery</button>
+			<div style="display: block;">HTML的全称为超文本标记语言，是一种标记语言。它包括一系列标签．通过这些标签可以将网络上的文档格式统一，使分散的Internet资源连接为一个逻辑整体。HTML文本是由HTML命令组成的描述性文本，HTML命令可以说明文字，图形、动画、声音、表格、链接等</div>
+			<div>JavaScript（简称“JS”） 是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web页面的脚本语言而出名，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格</div>
+			<div>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</div>
+		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				let btns = $('#div1').find('button');
+				let divs = $('#div1').find('div');
+				
+				btns.click(function(){
+					btns.attr('class', '');
+					divs.css('display', 'none');
+					$(this).attr('class', 'active');
+					divs.eq($(this).index()).css('display', 'block')
+				})
+			})
+		</script>
+	</body>
+</html>

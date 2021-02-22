@@ -1,0 +1,143 @@
+/*清除默认样式*/
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #333333;
+}
+ul{
+    list-style: none;
+}
+img{
+    display: block;
+}
+body{
+    font-size: 14px;
+    color: #333333;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
+/*通栏和版心*/
+.container{
+    width: 1226px;
+    margin: 0 auto;
+}
+.container-fluid{
+    width: 100%;
+}
+
+/*头部黑色栏样式*/
+.header-bar{
+    background: #333333;
+    height: 40px;
+}
+
+/*头部黑色栏左侧样式*/
+.header-bar-left ul li{
+    float: left;
+    height: 40px;
+}
+.header-bar-left a{
+    display: inline-block;
+    font-size: 12px;
+    line-height: 40px;
+    color: #b0b0b0;
+}
+.header-bar-left a:hover{
+    color: #FFFFFF;
+}
+.header-bar-left span.seq{
+    color: #424242;
+    font-size: 14px;
+    margin-left: 4px;
+    margin-right: 5px;
+}
+.header-bar-left .download-app{
+    position: relative;
+    z-index: 100;
+}
+.download-app .rect{
+    position: absolute;
+    left: 15px;
+    top: 24px;
+    border: 8px solid transparent;
+    border-bottom-color: #FFFFFF;
+    display: none;
+}
+.download-app:hover .rect{
+    display: block;
+}
+.download-app .app-img{
+    width: 124px;
+    position: absolute;
+    left: -38px;
+    box-shadow: 0 1px 5px #aaa;
+    text-align: center;
+    height: 0;
+    transition: height 1s;
+    overflow: hidden;
+}
+.download-app:hover .app-img{
+    height: 150px;
+}
+.download-app:hover .app-img img{
+    margin: 17px 17px 0 17px;
+
+}
+.download-app .app-img span{
+    color: #333333;
+}
+.download-app .app-img img{
+    width: 90px;
+    margin: 17px 17px 0 17px;
+}
+
+/*头部黑色栏右侧样式*/
+.header-bar-right ul li{
+    float: right;
+    height: 40px;
+}
+.header-bar-right ul li:nth-child(2){
+    padding: 0 10px 0 5px;
+    margin-right: 10px;
+}
+.header-bar-right ul li a{
+    display: inline-block;
+    color: #b0b0b0;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+
+}
+.header-bar-right span{
+    color: #424242;
+    font-size: 14px;
+    margin-left: 4px;
+    margin-right: 5px;
+}
+.header-bar-right ul li:first-child{
+    background: #424242;
+    position: relative;
+    width: 100px;
+    text-align: center;
+}
+.header-bar-right ul li:first-child:hover{
+    background: #ffffff;
+}
+.header-bar-right ul li:first-child a{
+    width: 100%;
+}
+.header-bar-right ul li:first-child a:hover{
+    color: #f66700;
+}
+.header-bar-right ul li .car{
+    background: #FFFFFF;
+    position: absolute;
+    left: -215px;
+    width: 316px;
+    height: 100px;
+    box-shadow: 0 2px 10px #aaa;
+}
+

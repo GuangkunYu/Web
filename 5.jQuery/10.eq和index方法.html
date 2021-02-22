@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<strong>strong</strong>
+		<em>em</em>
+		<div id="div1">
+			<h2>h2</h2>
+			<p>p</p>
+			<h3>h3</h3>
+			<em>em</em>
+			<div>div</div>
+		</div>
+		<ul>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+		</ul>
+		
+		
+		<script type="text/javascript">
+			/* 
+				index() 获取当前节点在兄弟节点中的下标
+				eq() 通过下标来获取指定的元素节点
+			*/
+		    $(function(){
+				console.log($('h3').index());
+				$('li').eq(3).css('background', 'red');
+				$('li:eq(4)').css('background', 'yellow')
+			})
+		</script>
+	</body>
+</html>
