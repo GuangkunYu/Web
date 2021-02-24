@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-bind：动态绑定属性（src、href...），缩写 ： 可用于绑定一个或多个属性值，或者向另一个组件传递props值 -->
+			<img v-bind:src="imgurl">
+			<a v-bind:href="url">百度一下</a>
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el: "#app",
+				data: {
+					imgurl: 'https://cn.vuejs.org/images/logo.png',
+					url: 'https://www.baidu.com'
+				}
+			})
+		</script>
+	</body>
+</html>

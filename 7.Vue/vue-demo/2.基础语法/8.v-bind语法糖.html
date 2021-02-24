@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-bind：对应的语法糖也就是简写模式为 : -->
+			<img v-bind:src="imgurl">
+			<a v-bind:href="url">百度一下</a>
+			<!-- 语法糖 -->
+			<img :src="imgurl">
+			<a :href="url">百度一下</a>
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el: "#app",
+				data: {
+					imgurl: 'https://cn.vuejs.org/images/logo.png',
+					url: 'https://www.baidu.com'
+				}
+			})
+		</script>
+	</body>
+</html>

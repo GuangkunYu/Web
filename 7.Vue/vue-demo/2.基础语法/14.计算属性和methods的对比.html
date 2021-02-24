@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 方案一：直接拼接，语法过于繁琐 -->
+			<h2>{{ firstName }} {{ lashName }}</h2>
+			<!-- 方案二：定义methods -->
+			<h2>{{ getFullName() }}</h2>
+			<h2>{{ getFullName() }}</h2>
+			<h2>{{ getFullName() }}</h2>
+			<h2>{{ getFullName() }}</h2>
+			<!-- 方案三：通过计算属性 推荐，有缓存-->
+			<h2>{{ fullName }}</h2>
+			<h2>{{ fullName }}</h2>
+			<h2>{{ fullName }}</h2>
+			<h2>{{ fullName }}</h2>
+			<!-- 总结：计算属性会进行缓存，如果多次使用，计算属性只会调用一次 -->
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					firstName: 'Lebron',
+					lashName: 'James'
+				},
+				computed: {
+					fullName: function(){
+						console.log('computed--fullName');
+						return this.firstName + " " + this.lashName
+					}
+				},
+				methods:{
+					getFullName: function(){
+						console.log('methods--getFullName');
+						return this.firstName + " " + this.lashName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

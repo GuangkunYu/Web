@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{ firstName }} {{ lashName }}</h2>
+			<h2>{{ firstName + " " + lashName }}</h2>
+			<h2>{{ getFullName() }}</h2>
+			<!-- 计算属性基本使用 -->
+			<h2>{{ fullName }}</h2>
+			<!-- 计算属性复杂操作 -->
+			<h2>总价格是：{{ totalPrice }}</h2>
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					firstName: 'Lebron',
+					lashName: 'James',
+					books: [
+						{'id': 001, 'name': 'HTML基础', 'price': 120},
+						{'id': 002, 'name': 'css基础', 'price': 100},
+						{'id': 003, 'name': 'js基础', 'price': 150},
+						{'id': 004, 'name': 'vue基础', 'price': 180}
+					]
+				},
+				// 计算属性
+				computed:{
+					// 计算属性基本使用
+					fullName: function(){
+						return this.firstName + " " + this.lashName
+					},
+					// 计算属性复杂操作
+					totalPrice: function(){
+						let result = 0;
+						/* for (let i = 0; i < this.books.length; i++) {
+							result += this.books[i].price
+						} */
+						/* for (let i in this.books) {
+							result += this.books[i].price
+						} */
+						for (let book of this.books) {
+							result += book.price
+						}
+						return result
+					}
+				},
+				methods:{
+					getFullName: function(){
+						return this.firstName + " " + this.lashName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
