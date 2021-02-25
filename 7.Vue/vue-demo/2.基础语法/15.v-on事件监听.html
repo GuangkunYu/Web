@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>当前计数：{{ counter}}</h2>
+			
+			<!-- v-on:绑定事件监听器，缩写 @ -->
+			<!-- <button type="button" v-on:click="add">+</button>
+			<button type="button" v-on:click="sub">-</button> -->
+			
+			<!-- 语法糖@写法 -->
+			<button type="button" @click="add">+</button>
+			<button type="button" @click="sub">-</button>
+			<br>
+			
+			<!-- 事件监听不需要传参时可以不写() -->
+			<button @click="btn1Click">按钮1</button>
+			<button @click="btn1Click()">按钮1</button><br>
+			<!-- 在事件定义时，写函数时省略了小括号，但是方法本身是需要一个参数的，这个时候vue会默认将浏览器生成的even事件对象作为参数传递过去 -->
+			<button @click="btn2Click(123)">按钮2</button>
+			<button @click="btn2Click()">按钮2</button>
+			<button @click="btn2Click">按钮2</button><br>
+			<!-- 在方法定义时，我们需要event对象，同时又需要其他参数 -->
+			<!-- 在调用方法时，手动的获取到浏览器参数的event对象：$event -->
+			<button @click="btn3Click(123, $event)">按钮3</button>
+		</div>
+
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					counter: 0
+				},
+				methods: {
+					add() {
+						this.counter++
+					},
+					sub() {
+						this.counter--
+					},
+					btn1Click() {
+						console.log('btn1Click--1111111111')
+					},
+					btn2Click(even) {
+						console.log('btn2Click--2222222222', even)
+					},
+					btn3Click(even, abc) {
+						console.log('btn3Click--3333333333', even, abc)
+					},
+					btn4Click() {
+						console.log('btn4Click--4444444444')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

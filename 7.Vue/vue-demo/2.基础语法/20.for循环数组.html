@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1. 在遍历的过程中，没有使用索引值（下标值） -->
+			<ul>
+				<li v-for="movie in movies">{{ movie }}</li>
+			</ul>
+			<!-- 2. 在遍历的过程中，获取索引值（下标值） -->
+			<ul>
+				<li v-for="(movie, index) in movies">{{index+1}} -- {{ movie }}</li>
+			</ul>
+		</div>
+		<!-- 
+			数组能响应式的方法：push、pop、shift、unshift、splice、sort、reverse 
+			Vue.set(要修改的对象，索引值，修改后的值)
+			注意：通过索引改值不是响应的
+		-->
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					movies: ['星际穿越', '狼来了', '美女与野兽']
+				}
+			})
+		</script>
+	</body>
+</html>
