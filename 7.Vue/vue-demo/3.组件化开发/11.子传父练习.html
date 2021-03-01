@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="app">
+		<h2>当前计数：{{ total }}</h2>
+		<cpn @cincrement='changetotal' @cdecrement='changetotal'></cpn>
+	</div>
+	
+	<template id="cpn">
+		<div>
+			<button @click="cincrement">+</button>
+			<button @click="cdecrement">-</button>
+		</div>
+	</template>
+	
+	<script type="text/javascript">
+		const cpn = {
+			template: '#cpn',
+			data(){
+				return {
+					counter: 0
+				}
+			},
+			methods: {
+				cincrement(){
+					this.counter++;
+					this.$emit('cincrement', this.counter)
+				},
+				cdecrement(){
+					this.counter--;
+					this.$emit('cincrement', this.counter)
+				}
+			}
+		}
+		
+		const app = new Vue({
+			el: '#app',
+			data: {
+				message: '你好啊！',
+				total: 0
+			},
+			components:{
+				cpn
+			},
+			methods:{
+				changetotal(c){
+					this.total = c
+				}
+			}
+		})
+	</script>
+</body>
+</html>

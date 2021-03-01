@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="app">
+		<cpn :cmessage='message' :cmovies='movies'></cpn>
+	</div>
+	
+	<template id="cpn">
+		<div>
+			<h2>{{ cmessage }}</h2>
+			<ul>
+				<li v-for="item in cmovies">{{ item }}</li>
+			</ul>
+		</div>
+	</template>
+	
+	<script type="text/javascript">
+		/* 
+			父子组件通信：
+				1. 通过props向子组件传递数据
+				2. 通过事件向父组件发送消息
+		*/
+
+		/* 
+			1. props基本用法
+				props值得两种方式
+				（1）字符串数组，数组中的字符串就是传递时的名称
+				（2）对象，对象可以设置传递时的类型，也可以设置默认值
+		*/
+		const cpn = {
+			template: '#cpn',
+			props: ['cmessage', 'cmovies']
+		}
+		
+		const app = new Vue({
+			el: '#app',
+			data: {
+				message: '你好啊！',
+				movies: ['海王', '海贼王', '海尔兄弟']
+			},
+			components: {
+				cpn
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 值绑定 -->
+			<select name="opt" v-model="fruits" multiple="multiple">
+				<option v-for="item in ourHobbies" :value="item">{{ item }}</option>
+			</select>
+			{{ fruits }}
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					fruits: [],
+					ourHobbies: ['香蕉', '苹果', '葡萄', '梨']
+				}
+			})
+		</script>
+	</body>
+</html>

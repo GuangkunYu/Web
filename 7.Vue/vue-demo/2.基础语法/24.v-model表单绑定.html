@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-model指令实现表单和数据的双向 绑定 -->
+			<!-- 基本使用 -->
+			<input type="text" v-model="message">
+			{{ message }}
+			<br>
+			
+			<!-- 原理: v-bind绑定value，v-on绑定表单元素的input事件 -->
+			<input type="text" :value="msg" @input="changeValue">
+			{{ msg }}
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					message: '你好啊',
+					msg: 'hello world'
+				},
+				methods: {
+					changeValue(event) {
+						this.msg = event.target.value 
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

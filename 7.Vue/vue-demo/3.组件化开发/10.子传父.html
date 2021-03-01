@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 父组件模板 -->
+		<div id="app">
+			<cpn @cbtnclick='btnclick'></cpn>
+		</div>
+
+		<!-- 子组件模板 -->
+		<template id="cpn">
+			<div>
+				<button v-for="item in catogries" @click="cbtnclick(item.id)">{{ item.name }}</button>
+			</div>
+		</template>
+
+		<script type="text/javascript">
+			// 子组件
+			const cpn = {
+				template: '#cpn',
+				data() {
+					return {
+						catogries: [{
+								id: 111,
+								name: '热门推荐'
+							},
+							{
+								id: 222,
+								name: '家用电器'
+							},
+							{
+								id: 333,
+								name: '手机数码'
+							},
+							{
+								id: 444,
+								name: '图书列表'
+							},
+						]
+					}
+				},
+				methods: {
+					cbtnclick(id){
+						this.$emit('cbtnclick', id)
+					}
+				}
+			}
+
+			// 父组件
+			const app = new Vue({
+				el: '#app',
+				data: {
+					message: '你好啊！'
+				},
+				components: {
+					cpn
+				},
+				methods:{
+					btnclick(id){
+						console.log(id)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
