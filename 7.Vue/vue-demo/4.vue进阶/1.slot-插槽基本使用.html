@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="app">
+		<cpn></cpn>
+		<cpn>
+			<i>hehhehhe</i>
+		</cpn>
+		<cpn>
+			<strong>aaaaaaaa</strong>
+			<i>hehhehhe</i>
+		</cpn>
+	</div>
+	
+	<template id="cpn">
+		<div>
+			<h2>我是子组件</h2>
+			<p>哈哈哈哈哈哈</p>
+			<slot><button>按钮</button></slot>
+		</div>
+	</template>
+	
+	<script type="text/javascript">
+		/* 
+			组件插槽：
+				组件的插槽让封装的组件更具有扩展性
+				让使用者可以决定组件内部的一些内容到底展示什么
+		*/
+		const app = new Vue({
+			el: '#app',
+			data: {
+				message: '你好啊！'
+			},
+			components:{
+				cpn: {
+					template: '#cpn',
+				}
+			}
+		})
+	</script>
+</body>
+</html>
