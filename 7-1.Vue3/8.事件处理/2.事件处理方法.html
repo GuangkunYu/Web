@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-on接收需要调用的方法名称 -->
+			<!-- 1. 直接绑定方法名 -->
+			<button @click="greet">Greet</button>
+			
+			<!-- 2. 通过调用方法绑定 -->
+			<button @click= say("hi")>Say hi</button>
+			<button @click = say("what")>Say what</button>
+			
+			<!-- 3. 访问原始DOM事件$event -->
+			<button @click="warn('form cannot be submitted yet.', $event)">Sumbit</button>
+			
+			<!-- 4. 多事件处理器：事件处理程序中可以有多个方法，这些方法由逗号运算符分隔 -->
+			<button @click="one($event), two($event)">Sumbit</button>
+			{{ name }}
+		</div>
+		<script type="text/javascript">
+			Vue.createApp({
+				data(){
+					return {
+						name: 'Vue.js'
+					}
+				},
+				methods: {
+					greet(event) {
+						// 方法内部的this指向当前活动的实例
+						console.log('hello ' + this.name + '!')
+						// event是原生DOM事件对象
+						if(event){
+							console.log(event.target.tagName)
+						}
+					},
+					say(str) {
+						console.log(str)
+					},
+					warn(msg, event){
+						if(event){
+							event.preventDefault()
+						}
+						console.log(msg)
+					},
+					one(event){
+						console.log('one')
+					},
+					two(event){
+						console.log('two')
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

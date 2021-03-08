@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.active{
+				font-size: 30px;
+			}
+			.text-danger{
+				color: greenyellow;
+			}
+		</style>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1.对象语法:在对象中可以传入多个字段动态切换class，也可以与普通class共存 -->
+			<!-- <p class="aa" :class="{active: isActive, 'text-danger':isDanger}">对象语法绑定class</p> -->
+			
+			<!-- 绑定的数据对象不必内联定义在模板里 -->
+			<!-- <p class="aa" :class="classObj">对象语法绑定class</p> -->
+			
+			<!-- 绑定一个对象的计算属性 -->
+			<p class="aa" :class="classObject">对象语法绑定class</p>
+			
+		</div>
+		
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						// isActive: true,
+						// isDanger: true
+						
+						// 绑定的数据对象不必内联定义在模板里
+						// classObj: {
+						// 	active: true,
+						// 	'text-danger': true
+						// }
+						
+						// 绑定一个返回对象的计算属性
+						isActive: true,
+						error: null
+					}
+				},
+				// 绑定一个返回对象的计算属性
+				computed: {
+					classObject(){
+						return{
+							active: this.isActive && !this.error,
+							'text-danger': this.error && this.error.type === 'fatal'
+						}
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

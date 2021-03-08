@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 对象语法-类似css
+				css property名可以用驼峰式或短横线分割(需要引号括起来)
+			-->
+			<!-- <div :style="{color: activeColor, fontSize: fontSize+'px'}">绑定style-对象语法</div> -->
+			
+			<!-- 直接绑定到一个样式对象会更加清晰 -->
+			<div :style="styleObj">绑定style-对象语法</div>
+		</div>
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						// activeColor: "greenyellow",
+						// fontSize: 30
+						
+						// 直接绑定到一个样式对象会更加清晰,或使用计算属性
+						styleObj: {
+							color: "greenyellow",
+							fontSize: "30px"
+						}
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

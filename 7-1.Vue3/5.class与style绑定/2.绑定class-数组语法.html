@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.active{
+				font-size: 30px;
+			}
+			.text-danger{
+				color: greenyellow;
+			}
+		</style>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 2.数组语法：可以将一个数组传入:class -->
+			<!-- <div :class="[activeClass, errorClass]">绑定class数组语法</div> -->
+			
+			<!-- 可以使用三元表达式根据条件切换列表中的class -->
+			<!-- <div :class="[isActive ? activeClass: '',  errorClass]">绑定class数组语法</div> -->
+			
+			<!-- 数组语法中也可以使用对象语法 -->
+			<div :class="[{active: isActive},  errorClass]">绑定class数组语法</div>
+		</div>
+		
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						activeClass:'active',
+						errorClass: 'text-danger',
+						
+						// 根据条件切换class
+						isActive: true,
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

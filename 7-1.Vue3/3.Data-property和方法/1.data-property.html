@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ msg }}
+		</div>
+		
+		<script type="text/javascript">
+			/* 
+				组件data选项是一个函数，vue在创建新组件实例的过程中调用此函数。
+				该函数返回一个对象。
+				实例property仅在实例首次创建时被添加，要确保他们都在data函数返回的对象中，必要时，要对尚未提供所需值得property使用null、undefined或其他占位值。
+				
+			*/
+			Vue.createApp({
+				data(){
+					return {
+							msg: '你好啊'
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

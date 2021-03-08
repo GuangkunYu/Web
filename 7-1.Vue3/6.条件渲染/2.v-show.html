@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-show：条件性展示元素
+				v-show的元素始终会被渲染并保留在DOM中，只是切换css的display属性，并且不支持<template>元素和v-else
+			-->
+			<h2 v-show="ok">Hello!</h2>
+			
+			<!-- 
+				v-if 是真正的条件渲染，它会确保在切换过程中，条件块内的事件监听器和子组件适当被销毁和重建。
+				v-if是惰性：初始渲染条件为假时，什么也不做，条件第一次为真时开始渲染，     v-if切换开销更高
+				v-show：不管初始条件是什么，元素总会被渲染，只是切换css  v-show初始渲染开销更高
+				
+				非常频繁的切换使用v-show
+				条件很少改变使用v-if
+			-->
+		</div>
+		
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						ok: 'true'
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

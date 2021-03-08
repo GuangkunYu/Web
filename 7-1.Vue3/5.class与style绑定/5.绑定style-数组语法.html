@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 数组语法：
+				可以将多个样式对象应用到同一个元素上
+			-->
+			<div :style="[baseStyles, overridingStyles]">绑定style-对象语法</div>
+		</div>
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						baseStyles: {
+							color: "greenyellow",
+							fontSize: "30px"
+						},
+						overridingStyles: {
+							border: "1px solid red"
+						}
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

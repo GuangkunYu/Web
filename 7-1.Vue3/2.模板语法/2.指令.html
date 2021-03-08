@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 指令：是带有v-前缀的特殊attribute
+					职责：当表达式的值改变时，将其产生的连带影响，响应式的作用于DOM
+			-->
+			<!-- 1. 参数 -->
+			<!-- 一些指令能够接收一个参数，在指令名称之后以冒号表示 -->
+			<!-- v-bind指令：用于绑定属性 -->
+			<a v-bind:href="url">百度一下</a>
+			<!-- v-on指令：用于监听DOM事件 -->
+			<button v-on:click="doSomeThing">百度一下</button>
+			
+			<!-- 2. 动态参数
+				在指令参数中使用js表达式，方法时用方括号括起来
+				不能写大写
+			-->
+			<!-- <a v-bind:[attributename]='url'>...</a>
+			<button v-on:[eventname]="doSomeThing">百度一下</button> -->
+			
+			<!-- 3. 修饰符
+				.指明特殊后缀
+				用于指出一个指令应该以特殊方式绑定
+				.prevent修饰符告诉v-on指令对于触发的事件调用event.preventDefault()
+			-->
+			<form v-on:submit.prevent="onSubmit">
+				<input type="submit" name="" id="" value="" />
+			</form>
+		</div>
+		
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						url: 'https://www.baidu.com',
+						attributename: "href",
+						eventname: "click"
+					}
+				},
+				methods: {
+					doSomeThing() {
+						console.log('doSomeThing')
+					},
+					onSubmit() {
+						console.log('------')
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

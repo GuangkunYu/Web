@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1. 文本 -->
+			<!-- 文本插值：使用mustache语法{{}}的文本插值 -->
+			<span>Message: {{ msg }}</span>
+			<br>
+			<!-- 使用v-once指令执行一次性的插值，当数据改变时，插值处的内容不会更新 -->
+			<span v-once>这个将不会改变：{{ msg }}</span>
+			<br>
+			
+			<!-- 2. 原始HTML -->
+			<!-- {{}}会将数据解释为普通文本，而非HTML代码，为了输出真正的HTML，需要使用v-html指令 -->
+			<p>using mustaches: {{ rawHtml }}</p>
+			<p>using v-html: <span v-html="rawHtml"></span></p>
+			
+			<!-- 3. Attribute -->
+			<!-- mustache语法不能在HTML attribute中使用，可以使用v-bind指令 -->
+			<div v-bind:id="dynamicId"></div>
+			<!-- 对于布尔attribute只要存在就意味着值为true，如果值为null或者undefined，则disabled属性不会被包含在渲染出来的元素中 -->
+			<button v-bind:disabled="isButtonDisabled">按钮</button>
+			<br>
+			
+			<!-- 4. 使用JavaScript表达式 -->
+			{{ number + 1 }} <br>
+			{{ ok ? 'YES': 'NO'}} <br>
+			{{ message.split('').reverse().join('') }} <br>
+			<div v-bind:id="'list-' + id"></div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						msg: '你好啊',
+						rawHtml: '<i style="color: red">哈哈哈哈</i>',
+						dynamicId: "div1",
+						isButtonDisabled: true,
+						number: 10,
+						ok: "ok",
+						message: "hello vue3",
+						id: 1
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

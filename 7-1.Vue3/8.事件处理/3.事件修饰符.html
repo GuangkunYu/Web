@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 方法只有纯粹的数据逻辑，而不是去处理DOM事件细节 -->
+			<!-- 事件修饰符：
+				.stop    阻止单击事件继续传播
+				.prevent    提交事件不再重载页面
+				.capture    添加事件监听器时使用事件捕获模式，即内部元素触发的事件先在此处理，然后才提交给内部元素进行处理
+				.self    只当在event.target是当前元素自身时触发处理函数，即事件不是从内部元素触发的
+				.once    
+				.passive
+			-->
+			
+			{{msg}}
+		</div>
+		<script type="text/javascript">
+			Vue.createApp({
+				data(){
+					return{
+						msg: 'aaaaaaaaa'
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

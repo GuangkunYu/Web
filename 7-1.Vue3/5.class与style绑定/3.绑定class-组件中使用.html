@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.foo{
+				font-size: 30px;
+			}
+			.bar{
+				color: aqua;
+			}
+			.baz{
+				margin-left: 20px;
+			}
+			.boo{
+				border: 1px solid #ADFF2F;
+			}
+			.active{
+				display: block;
+				height: 50px;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<cpn class='baz boo' :class='{active: isActive}'></cpn>
+		</div>
+		
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						isActive: true
+					}
+				}
+			});
+			app.component('cpn', {
+				// template:`<p class='foo bar'>Hi!</p>`
+				// 组件有多个根元素，需要定义那些部分接收继承父组件的class，使用$attrs组件属性执行此操作
+				template:`
+					<p class='foo bar'>Hi!</p>
+					<span :class='$attrs.class'>this is a child component</sapn>
+				`
+			});
+			app.mount('#app')
+		</script>
+	</body>
+</html>

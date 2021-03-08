@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<!-- v-for遍历对象直接获取value值 -->
+				<!-- <li v-for="value in myObject">{{ value }}</li> -->
+				
+				<!-- 提供第二个参数为key -->
+				<!-- <li v-for="(value, key) in myObject">{{ key }}--{{ value }}</li> -->
+				
+				<!-- 提供第三个参数为索引 -->
+				<!-- <li v-for="(value, key, index) in myObject">{{ key }}--{{ index }}--{{ value }}</li> -->
+				
+				<!-- v-for渲染元素列表时，默认使用就地更新策略。
+					如果数据项的顺序被改变，vue不会移动DOM元素来匹配数据项顺序，而是就地更新每个元素，并确保它们在每个索引位置正确渲染
+					为了给vue一个提示，方便它能跟踪每个节点的身份，从而重用和重新排序现有的元素，需要为每项提供一个唯一key值
+				-->
+				<li v-for="(value,name,index) in myObject" :key='value'>{{index}}-----{{ value }}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						myObject: {
+							title: 'how to do lists in Vue',
+							author: 'jane doe',
+							publishedAt: '2016-04-10'
+						}
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

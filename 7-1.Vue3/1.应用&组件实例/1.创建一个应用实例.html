@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ count }}
+		</div>
+		
+		<script type="text/javascript">
+			// 每个 Vue 应用都是通过用 createApp 函数创建一个新的应用实例开始的
+			// 该应用实例是用来在应用中注册全局组件的
+			// 应用实例暴露的大多数方法都返回该同一实例，允许链式
+			
+			// 创建一个Vue应用实例
+			const app = Vue.createApp({
+				data() {
+					return {
+						count: 4
+					}
+				}
+			})
+			
+			// 根组件
+			// 传递给createApp的选项用于配置根组件
+			// 当挂载应用时，该组件被用作渲染的起点
+			// 一个应用需要被挂载到一个DOM元素中
+			// mount()返回的是根组件实例
+			const vm = app.mount('#app')
+			
+			// 在data中定义的property通过组件实例暴露
+			console.log(vm.count)
+		</script>
+	</body>
+</html>

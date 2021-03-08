@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 
+				1. 变更方法:会变更调用这些方法的原始数组
+				vue包裹了被侦听的数组的变更方法，它们会触发视图更新，方法包括：
+					push():最后面插入一个元素
+					pop()：删除最后一个
+					shift()：删除第一个
+					unshift()：在最前面插入一个元素
+					splice()：插入或者删除某个位置的元素
+					sort()：排序
+					reverse()：反转
+			-->
+			<!-- <ul>
+				<li v-for="item in items">{{item}}</li>
+			</ul> -->
+			<!-- 
+				2.替换数组：不会变更原始数组，而是返回一个新数组
+					使用非变更方法时可以用新数组替换旧数组
+					filter()
+					concat()
+					slice() 
+			-->
+			<ul>
+				<li v-for="item in items">{{item}}</li>
+			</ul>
+			<button @click="changeArr">切换数组</button>
+		</div>
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						items: ['海王', '海贼王', '海尔兄弟']
+					}
+				},
+				methods: {
+					changeArr(){
+						this.items = this.items.map((item)=>item+'v1')
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

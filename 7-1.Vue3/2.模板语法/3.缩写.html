@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-bind缩写 : -->
+			<a :href="">...</a>
+			
+			<!-- v-on缩写 -->
+			<a @click=""></a>
+			{{ msg }}
+		</div>
+		
+		<script type="text/javascript">
+			Vue.createApp({
+				data(){
+					return{
+						msg: '你好啊'
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

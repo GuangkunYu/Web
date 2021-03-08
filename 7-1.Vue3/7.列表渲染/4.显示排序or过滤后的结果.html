@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue3.0.7.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 通过创建一个计算属性来返回过滤或排序的数组，而不变更原始数组 -->
+			<ul>
+				<li v-for="n in evenNumbers"> {{ n }} </li>
+			</ul>
+			<!-- 计算属性不适用的情况下（嵌套v-for），使用一个方法 -->
+			<ul v-for="numbers in sets">
+				<li v-for="e in evens(numbers)">{{ e }}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			const app = Vue.createApp({
+				data(){
+					return{
+						numbers: [1, 2, 3, 4, 5],
+						sets: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+					}
+				},
+				methods:{
+					evens(numbers){
+						return numbers.filter((num) => num % 2 === 0)
+					}
+				},
+				computed: {
+					evenNumbers(){
+						return this.numbers.filter((num) => num % 2 === 0)
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>
