@@ -7,6 +7,26 @@
 	<body>
 
 		<script>
+			// 1. 使用setTimeout
+			setTimeout(()=>{
+				console.log("1 hello world");
+			}, 1000)
+
+			// 有异步操作时使用promise对这个异步操作进行封装
+			new Promise((resolve, reject)=>{
+				setTimeout(()=>{
+					// 网络请求成功
+					resolve()
+					// 网络请求失败
+					reject('error')
+				}, 1000)
+			}).then(()=>{
+				// 请求成功执行
+				console.log("2 hello world");
+			}).catch((err)=>{
+				// 请求失败执行
+				console.log(err)
+			})
 
 		</script>
 	</body>
